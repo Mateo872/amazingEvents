@@ -72,7 +72,6 @@ header {
 
 @media (min-width: 766px) {
   header {
-    width: 100%;
     nav {
       width: 95%;
       margin: 0 auto;
@@ -99,7 +98,6 @@ header {
             color: #fdfdfd;
             &:hover {
               border-bottom: 2px solid #fdfdfd;
-              transform-origin: 0.3s;
             }
           }
           .active {
@@ -110,6 +108,23 @@ header {
 
       i {
         display: none;
+      }
+    }
+  }
+}
+@media (min-width: 990px) {
+  header {
+    nav {
+      width: 90%;
+      .image-logo {
+        width: 10rem;
+      }
+      .menu-container {
+        li {
+          a {
+            font-size: 1.2rem;
+          }
+        }
       }
     }
   }

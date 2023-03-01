@@ -69,9 +69,6 @@ header nav i {
 }
 
 @media (min-width: 766px) {
-  header {
-    width: 100%;
-  }
   header nav {
     width: 95%;
     margin: 0 auto;
@@ -100,12 +97,22 @@ header nav i {
   }
   header nav .menu-container li a:hover {
     border-bottom: 2px solid #fdfdfd;
-    transform-origin: 0.3s;
   }
   header nav .menu-container li .active {
     border-bottom: 2px solid #fdfdfd;
   }
   header nav i {
     display: none;
+  }
+}
+@media (min-width: 990px) {
+  header nav {
+    width: 90%;
+  }
+  header nav .image-logo {
+    width: 10rem;
+  }
+  header nav .menu-container li a {
+    font-size: 1.2rem;
   }
 }/*# sourceMappingURL=styles.css.map */
