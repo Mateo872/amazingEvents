@@ -66,4 +66,46 @@ header nav .menu-visible {
 header nav i {
   font-size: 1.6rem;
   color: #fdfdfd;
+}
+
+@media (min-width: 766px) {
+  header {
+    width: 100%;
+  }
+  header nav {
+    width: 95%;
+    margin: 0 auto;
+  }
+  header nav .image-logo {
+    width: 8rem;
+  }
+  header nav .image-logo img {
+    margin-top: 0.3rem;
+    width: 100%;
+  }
+  header nav .menu-container {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 2rem;
+    background-color: transparent;
+    position: static;
+    transform: translateX(0%);
+  }
+  header nav .menu-container li:nth-child(1) {
+    margin: 0;
+  }
+  header nav .menu-container li a {
+    color: #fdfdfd;
+  }
+  header nav .menu-container li a:hover {
+    border-bottom: 2px solid #fdfdfd;
+    transform-origin: 0.3s;
+  }
+  header nav .menu-container li .active {
+    border-bottom: 2px solid #fdfdfd;
+  }
+  header nav i {
+    display: none;
+  }
 }/*# sourceMappingURL=styles.css.map */
