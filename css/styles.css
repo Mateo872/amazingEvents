@@ -231,7 +231,7 @@ main .cards-show-overlay .card-show {
 }
 main .cards-show-overlay .card-show img {
   width: 100%;
-  height: 7.5rem;
+  height: 8rem;
   border-radius: 0.4rem;
   box-shadow: -6px -6px 9px 0px rgba(0, 0, 0, 0.75);
 }
@@ -252,10 +252,10 @@ main .bi-x-lg:hover {
 }
 
 footer {
-  margin-top: 3rem;
-  padding: 2rem 0;
+  padding: 1rem 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 2rem;
   color: #fdfdfd;
@@ -387,6 +387,9 @@ footer .footer-container .socials .socials-icon a {
   main .cards-container .cards .cards-description {
     width: 85%;
   }
+  main .cards-show-overlay .card-show {
+    transform: translateY(50%);
+  }
   footer .footer-container {
     width: 55%;
     flex-direction: row;
@@ -476,6 +479,7 @@ footer .footer-container .socials .socials-icon a {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    transform: translateY(65%);
   }
   main .cards-show-overlay .card-show img {
     width: 20rem;
