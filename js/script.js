@@ -222,8 +222,10 @@ function search(e) {
   }
 }
 
+let cards = [];
+
 function addCard(data) {
-  let cards = [];
+  cards = [];
 
   if (data == undefined) {
     cards = [];
@@ -244,6 +246,55 @@ function addCard(data) {
           <p class="cards-price">Price <span>$${event.price}</span></p>
           <button class="cards-btn-show-more">Ver más...</button>
         </div>
-      </article>`;
+        </article>`;
+  });
+  ShowMore();
+}
+
+function ShowMore() {
+  const btnShowMore = document.querySelectorAll(".cards-btn-show-more");
+
+  btnShowMore.forEach((boton) => boton.addEventListener("click", showCardMore));
+}
+
+function showCardMore(e) {
+  const dataValue =
+    e.target.parentElement.parentElement.querySelector("h3").textContent;
+
+  const dataEvent = cards.find((event) => event.name == dataValue);
+
+  cards.forEach((event) => {
+    event.name == dataValue;
+
+    cardsContainer.innerHTML = `
+    <div class="cards-show-overlay">
+          <div class="card-show">
+              <i class="bi bi-x-lg"></i>
+            <div class="cards-image">
+              <img src="./img/${dataEvent.image}" alt="Evento cine" />
+            </div>
+            <div class="card-features">
+              <h3 class="cards-title">${dataEvent.name}</h3>
+              <p class="cards-description">
+                ${dataEvent.description}
+              </p>
+            </div>
+          </div>
+        </div>
+        `;
+  });
+  overlayClose();
+}
+
+function overlayClose() {
+  const cardOverlay = document.querySelector(".cards-show-overlay");
+  cardsContainer.appendChild(cardsEvents);
+
+  const btnClose = document.querySelector(".bi-x-lg");
+
+  cardOverlay.addEventListener("click", () => {
+    cardsContainer.innerHTML = "";
+    cardsContainer.appendChild(cardsEvents);
+    inputSearch.value = "";
   });
 }

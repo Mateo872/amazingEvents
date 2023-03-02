@@ -138,6 +138,7 @@ main .check-container .checkbox-search .category-input__container .category-inpu
 }
 main .cards-container {
   margin-top: 4rem;
+  padding-bottom: 2rem;
 }
 main .cards-container .cards {
   width: 16.5rem;
@@ -203,6 +204,51 @@ main .cards-container .cards-events {
 }
 main .cards-container .none {
   display: none;
+}
+main .cards-show-overlay {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+main .cards-show-overlay .card-show {
+  width: 16rem;
+  height: 20rem;
+  position: absolute;
+  transform: translateY(60%);
+  background-color: #fdfdfd;
+  border-radius: 0.4rem;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+main .cards-show-overlay .card-show img {
+  width: 100%;
+  height: 7.5rem;
+  border-radius: 0.4rem;
+  box-shadow: -6px -6px 9px 0px rgba(0, 0, 0, 0.75);
+}
+main .cards-show-overlay .card-show .card-features .cards-title {
+  margin-bottom: 1rem;
+}
+main .bi-x-lg {
+  position: absolute;
+  color: #fdfdfd;
+  transition: 0.3s;
+  font-size: 1rem;
+  top: -2rem;
+  right: 0;
+  cursor: pointer;
+}
+main .bi-x-lg:hover {
+  color: #c60d61;
 }
 
 footer {
@@ -423,6 +469,31 @@ footer .footer-container .socials .socials-icon a {
   }
   main .cards-container .cards {
     margin: 0;
+  }
+  main .cards-show-overlay .card-show {
+    width: 40rem;
+    height: 18rem;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  main .cards-show-overlay .card-show img {
+    width: 20rem;
+    height: 16rem;
+    border-radius: 0.4rem;
+    box-shadow: -6px -6px 9px 0px rgba(0, 0, 0, 0.75);
+  }
+  main .cards-show-overlay .card-show .card-features {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  main .cards-show-overlay .card-show .card-features p {
+    width: 70%;
+    margin: 0 auto;
+  }
+  footer {
+    margin-top: 1rem;
   }
   footer .footer-container {
     width: 78%;
