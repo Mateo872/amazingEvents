@@ -20,11 +20,11 @@
           /></a>
         </div>
         <ul class="menu-container">
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#">Upcomming Events</a></li>
-          <li><a href="#">Past Events</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Stats</a></li>
+          <li><a href="#" class="active">Inicio</a></li>
+          <li><a href="#">Eventos próximos</a></li>
+          <li><a href="#">Eventos pasados</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Estadísticas</a></li>
         </ul>
         <i class="bi bi-list"></i>
       </nav>
@@ -33,7 +33,7 @@
       <section class="slider-container">
         <article class="slider">
           <i class="bi bi-chevron-left arrow"></i>
-          <h1>Home</h1>
+          <h1>Inicio</h1>
           <i class="bi bi-chevron-right arrow"></i>
         </article>
       </section>
@@ -44,25 +44,43 @@
               type="text"
               class="input-text"
               placeholder="Busca un evento"
+              class="input"
             />
             <i class="bi bi-search"></i>
           </div>
           <div class="category-input__container">
-            <div class="category-input">
-              <input type="checkbox" name="allEvents" id="allEvents" />
-              <label for="allEvents">Todos los eventos</label>
+            <div class="category-input allEvents">
+              <input
+                type="checkbox"
+                name="allEvents"
+                id="allEvents"
+                class="input"
+              />
+              <label class="label-check" for="allEvents"
+                >Todos los eventos</label
+              >
             </div>
-            <div class="category-input">
+            <div class="category-input upcommingEvents">
               <input
                 type="checkbox"
                 name="upcommingEvents"
                 id="upcommingEvents"
+                class="input"
               />
-              <label for="upcommingEvents">Upcomming events</label>
+              <label class="label-check" for="upcommingEvents"
+                >Eventos próximos</label
+              >
             </div>
-            <div class="category-input">
-              <input type="checkbox" name="pastEvents" id="pastEvents" />
-              <label for="pastEvents">Past events</label>
+            <div class="category-input pastEvents">
+              <input
+                type="checkbox"
+                name="pastEvents"
+                id="pastEvents"
+                class="input"
+              />
+              <label class="label-check" for="pastEvents"
+                >Eventos pasados</label
+              >
             </div>
           </div>
         </article>
@@ -70,6 +88,7 @@
       <section class="cards-container">
         <div class="cards-events"><p>No hay eventos con ese nombre</p></div>
       </section>
+      <section class="cards-show-overlay"></section>
     </main>
     <footer>
       <div class="footer-container">
