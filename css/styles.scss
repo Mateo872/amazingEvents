@@ -198,6 +198,15 @@ main {
         }
       }
     }
+    .cards-events {
+      padding: 4rem;
+      text-align: center;
+      color: #fdfdfd;
+      opacity: 0.6;
+    }
+    .none {
+      display: none;
+    }
   }
 }
 
@@ -335,15 +344,14 @@ footer {
     }
 
     .cards-container {
-      width: 85%;
+      width: 90%;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: center;
       .cards {
         height: 22rem;
         margin-top: 2.2rem;
-
         .cards-description {
           width: 85%;
         }
@@ -439,11 +447,11 @@ footer {
     }
 
     .cards-container {
-      margin-top: 2rem;
+      margin-top: 3rem;
       width: 100%;
-      gap: 1rem;
+      gap: 2rem;
       .cards {
-        margin: 1.1rem 0;
+        margin: 0;
       }
     }
   }

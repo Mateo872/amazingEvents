@@ -202,17 +202,48 @@ let events = [
 
 const cardsContainer = document.querySelector(".cards-container");
 
-events.forEach((event) => {
-  cardsContainer.innerHTML += `
-    <article class="cards">
-      <div class="cards-image">
-        <img src="./img/${event.image}" alt="Evento cine" />
-      </div>
-      <h3 class="cards-title">${event.name}</h3>
-      <p class="cards-description">${event.description}</p>
-      <div class="cards-features">
-        <p class="cards-price">Price <span>$${event.price}</span></p>
-        <button class="cards-btn-show-more">Ver más...</button>
-      </div>
-    </article>`;
-});
+const inputSearch = document.querySelector(".input-text");
+
+const cardsEvents = document.querySelector(".cards-events");
+
+inputSearch.addEventListener("keyup", search);
+
+function search(e) {
+  const letter = e.target.value;
+  const data = events.filter((lett) =>
+    lett.name.toLowerCase().includes(letter.toLowerCase())
+  );
+
+  if (!letter || data.length == 0) {
+    cardsContainer.innerHTML = "";
+    cardsContainer.appendChild(cardsEvents);
+  } else {
+    addCard(data);
+  }
+}
+
+function addCard(data) {
+  let cards = [];
+
+  if (data == undefined) {
+    cards = [];
+  } else {
+    cards.push(...data);
+  }
+  cardsContainer.innerHTML = "";
+
+  cards.forEach((event) => {
+    cardsContainer.innerHTML += `
+      <article class="cards">
+        <div class="cards-image">
+          <img src="./img/${event.image}" alt="Evento cine" />
+        </div>
+        <h3 class="cards-title">${event.name}</h3>
+        <p class="cards-description">${event.description}</p>
+        <div class="cards-features">
+          <p class="cards-price">Price <span>$${event.price}</span></p>
+          <button class="cards-btn-show-more">Ver más...</button>
+        </div>
+      </article>`;
+  });
+}

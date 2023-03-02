@@ -195,6 +195,15 @@ main .cards-container .cards .cards-features .cards-btn-show-more {
   box-shadow: -8px -4px 5px 0px rgba(0, 0, 0, 0.75);
   cursor: pointer;
 }
+main .cards-container .cards-events {
+  padding: 4rem;
+  text-align: center;
+  color: #fdfdfd;
+  opacity: 0.6;
+}
+main .cards-container .none {
+  display: none;
+}
 
 footer {
   margin-top: 3rem;
@@ -319,11 +328,11 @@ footer .footer-container .socials .socials-icon a {
     font-size: 0.8rem;
   }
   main .cards-container {
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
   }
   main .cards-container .cards {
     height: 22rem;
@@ -408,12 +417,12 @@ footer .footer-container .socials .socials-icon a {
     cursor: pointer;
   }
   main .cards-container {
-    margin-top: 2rem;
+    margin-top: 3rem;
     width: 100%;
-    gap: 1rem;
+    gap: 2rem;
   }
   main .cards-container .cards {
-    margin: 1.1rem 0;
+    margin: 0;
   }
   footer .footer-container {
     width: 78%;
