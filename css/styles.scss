@@ -12,19 +12,17 @@ body {
 }
 
 .background-overlay {
-  background-color: rgba(0, 0, 0, 2);
+  background-color: rgba(0, 0, 0, 0.93);
   transition: 0.5s;
 }
 
 header {
   width: 100%;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #fdfdfd;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 2;
-  backdrop-filter: blur(0.2rem);
 
   nav {
     padding: 1rem 2rem 0;
@@ -77,6 +75,9 @@ header {
       color: #fdfdfd;
     }
   }
+}
+.border-color {
+  border-bottom: 1px solid #fdfdfd;
 }
 
 main {

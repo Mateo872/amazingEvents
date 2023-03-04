@@ -211,7 +211,9 @@ inputCheck.forEach((check) => check.addEventListener("click", checked));
 
 let indexArrow = 1;
 
-function upcommingEvents() {
+function upcommingEvents(e) {
+  e.preventDefault();
+
   const cardFilter = eventsFilter.filter((estimate) => estimate.estimate);
 
   if (cardFilter) {
@@ -231,7 +233,9 @@ function upcommingEvents() {
   timeOut();
 }
 
-function pastEvents() {
+function pastEvents(e) {
+  e.preventDefault();
+
   const cardFilter = eventsFilter.filter((estimate) => estimate.assistance);
 
   if (cardFilter) {
@@ -539,15 +543,17 @@ function showCardMore(e) {
               <p class="cards-description">
                 ${dataEvent.descriptionDetail}
               </p>
-              <p class="cards-estimate-assitance">
-               Personas ${dataEvent.estimate || dataEvent.assistance}
-              </p>
+            
             </div>
           </div>
         `;
   });
 }
-
+{
+  /* <p class="cards-estimate-assitance">
+Personas ${dataEvent.estimate || dataEvent.assistance}
+</p> */
+}
 cardOverlay.addEventListener("click", (e) => {
   if (
     e.target.className == "cards-show-overlay" ||
@@ -557,3 +563,41 @@ cardOverlay.addEventListener("click", (e) => {
     inputSearch.value = "";
   }
 });
+
+function windowScroll() {
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    const navbarLinks = document.querySelectorAll(".navbar-links");
+
+    if (window.innerWidth == 390) {
+      if (window.scrollY >= 70) {
+        header.style.borderBottom = "none";
+        header.style.backgroundColor = "#fdfdfd";
+        header.style.transition = ".5s";
+        btnHambur.style.color = "#1e1e1e";
+        menuContainer.style.backgroundColor = "#1e1e1e";
+        navbarLinks.forEach((navbar) => (navbar.style.color = "#fdfdfd"));
+      } else {
+        header.style.borderBottom = "1px solid #fdfdfd";
+        header.style.backgroundColor = "transparent";
+        btnHambur.style.color = "#fdfdfd";
+        menuContainer.style.backgroundColor = "#fdfdfd";
+        navbarLinks.forEach((navbar) => (navbar.style.color = "#1e1e1e"));
+      }
+    } else {
+      if (window.scrollY >= 70) {
+        header.style.borderBottom = "none";
+        header.style.backgroundColor = "#fdfdfd";
+        header.style.transition = ".5s";
+        navbarLinks.forEach((navbar) => (navbar.style.color = "#1e1e1e"));
+        menuContainer.style.backgroundColor = "transparent";
+      } else {
+        header.style.borderBottom = "1px solid #fdfdfd";
+        header.style.backgroundColor = "transparent";
+        navbarLinks.forEach((navbar) => (navbar.style.color = "#fdfdfd"));
+      }
+    }
+  });
+}
+
+windowScroll();
