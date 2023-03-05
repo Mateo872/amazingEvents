@@ -404,6 +404,9 @@ navbarLinksHome.addEventListener("click", (e) => {
   navbarLinksPast.classList.remove("active");
   navbarLinksHome.classList.add("active");
 });
+
+const containerEvents = document.querySelector(".container-events");
+
 navbarLinksPast.addEventListener("click", (e) => {
   e.preventDefault();
   pastEvents();
@@ -413,6 +416,27 @@ navbarLinksUpcomming.addEventListener("click", (e) => {
   e.preventDefault();
   upcommingEvents();
 });
+
+navbarLinksContact.addEventListener("click", (e) => {
+  e.preventDefault();
+  contact();
+});
+
+const containerContact = document.querySelector(".container-contact");
+
+function contact() {
+  containerContact.style.display = "block";
+
+  indexArrow = 4;
+
+  containerEvents.style.display = "none";
+  sliderTitle.innerText = "Contáctame";
+  navbarLinksPast.classList.remove("active");
+  navbarLinksStats.classList.remove("active");
+  navbarLinksUpcomming.classList.remove("active");
+  navbarLinksHome.classList.remove("active");
+  navbarLinksContact.classList.add("active");
+}
 
 function timeOut() {
   sliderTitle.style.transform = "scale(.8)";
@@ -442,15 +466,21 @@ function arrowPlus() {
     navbarLinksStats.classList.remove("active");
     navbarLinksUpcomming.classList.remove("active");
     navbarLinksHome.classList.add("active");
+    containerEvents.style.display = "block";
+    containerContact.style.display = "none";
     addCard(eventsFilter);
   } else if (indexArrow == 2) {
     sliderTitle.innerText = "Eventos próximos";
+    containerEvents.style.display = "block";
+    containerContact.style.display = "none";
     upcommingEvents();
   } else if (indexArrow == 3) {
     sliderTitle.innerText = "Eventos pasados";
+    containerEvents.style.display = "block";
+    containerContact.style.display = "none";
     pastEvents();
   } else if (indexArrow == 4) {
-    sliderTitle.innerText = "Contacto";
+    sliderTitle.innerText = "Contáctame";
     checkAllEvents.checked = false;
     checkUpcommingEvents.checked = false;
     checkPastEvents.checked = false;
@@ -459,8 +489,11 @@ function arrowPlus() {
     navbarLinksPast.classList.remove("active");
     navbarLinksUpcomming.classList.remove("active");
     navbarLinksContact.classList.add("active");
+    contact();
   } else if (indexArrow == 5) {
     sliderTitle.innerText = "Estadísticas";
+    containerEvents.style.display = "block";
+    containerContact.style.display = "none";
     checkAllEvents.checked = false;
     checkUpcommingEvents.checked = false;
     checkPastEvents.checked = false;
@@ -491,8 +524,10 @@ function arrowMinus() {
     navbarLinksPast.classList.remove("active");
     navbarLinksUpcomming.classList.remove("active");
     navbarLinksStats.classList.add("active");
+    containerEvents.style.display = "block";
+    containerContact.style.display = "none";
   } else if (indexArrow == 4) {
-    sliderTitle.innerText = "Contacto";
+    sliderTitle.innerText = "Contáctame";
     checkAllEvents.checked = false;
     checkUpcommingEvents.checked = false;
     checkPastEvents.checked = false;
@@ -501,15 +536,22 @@ function arrowMinus() {
     navbarLinksPast.classList.remove("active");
     navbarLinksUpcomming.classList.remove("active");
     navbarLinksContact.classList.add("active");
+    contact();
   } else if (indexArrow == 3) {
     sliderTitle.innerText = "Eventos pasados";
     pastEvents();
+    containerEvents.style.display = "block";
+    containerContact.style.display = "none";
   } else if (indexArrow == 2) {
     sliderTitle.innerText = "Eventos próximos";
     upcommingEvents();
+    containerEvents.style.display = "block";
+    containerContact.style.display = "none";
   } else if (indexArrow == 1) {
     sliderTitle.innerText = "Inicio";
     addCard(eventsFilter);
+    containerEvents.style.display = "block";
+    containerContact.style.display = "none";
     checkPastEvents.checked = false;
     checkUpcommingEvents.checked = false;
     checkAllEvents.checked = true;
@@ -686,3 +728,87 @@ function windowScroll() {
 }
 
 windowScroll();
+
+const firstName = document.querySelector("#firstName");
+const btnSubmit = document.querySelector(".btn-disable");
+const email = document.querySelector("#mail");
+const messageInput = document.querySelector("#message");
+const messageContainer = document.querySelector(".messageContainer");
+const messageValidate = document.createElement("p");
+const form = document.querySelector(".form");
+const er =
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+btnSubmit.disabled = true;
+firstName.addEventListener("blur", inputValue);
+email.addEventListener("blur", inputValue);
+messageInput.addEventListener("blur", inputValue);
+btnSubmit.addEventListener("click", sendEmail);
+function inputValue(e) {
+  if (e.target.value.length > 0) {
+    e.target.classList.remove("border-error");
+    e.target.classList.add("border-correct");
+  } else {
+    e.target.classList.add("border-error");
+    e.target.classList.remove("border-correct");
+  }
+
+  if (e.target.type === "email") {
+    if (er.test(e.target.value)) {
+      e.target.classList.remove("border-error");
+      e.target.classList.add("border-correct");
+    } else {
+      e.target.classList.remove("border-correct");
+      e.target.classList.add("border-error");
+    }
+  }
+
+  if (
+    firstName.className.includes("border-correct") &&
+    email.className.includes("border-correct") &&
+    messageInput.className.includes("border-correct")
+  ) {
+    messageContainer.style.display = "none";
+    btnSubmit.disabled = false;
+    btnSubmit.classList.remove("btn-disable");
+  } else {
+    btnSubmit.disabled = true;
+    btnSubmit.classList.add("btn-disable");
+    messageValidate.classList.add("message-error");
+    showMessage("Todos los campos son obligatorios");
+  }
+}
+
+function showMessage(message) {
+  messageValidate.innerHTML = message;
+  messageContainer.appendChild(messageValidate);
+}
+
+function sendEmail(e) {
+  e.preventDefault();
+
+  btnSubmit.disabled = true;
+  btnSubmit.classList.add("btn-disable");
+
+  const spinner = document.querySelector("#spinner");
+  spinner.style.display = "flex";
+
+  setTimeout(() => {
+    spinner.style.display = "none";
+
+    firstName.classList.remove("border-correct");
+    email.classList.remove("border-correct");
+    messageInput.classList.remove("border-correct");
+    messageContainer.style.display = "block";
+    messageValidate.classList.add("message-correct");
+    showMessage("Mensaje enviado correctamente!");
+
+    setTimeout(() => {
+      messageContainer.style.display = "none";
+      resetForm();
+    }, 3000);
+  }, 3000);
+}
+
+function resetForm() {
+  form.reset();
+}

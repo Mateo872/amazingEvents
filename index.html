@@ -51,58 +51,114 @@
           <i class="bi bi-chevron-right arrow"></i>
         </article>
       </section>
-      <section class="check-container">
-        <article class="checkbox-search">
-          <div class="input-search">
-            <input
-              type="text"
-              class="input-text"
-              placeholder="Busca un evento"
-              class="input"
-            />
-            <i class="bi bi-search"></i>
-          </div>
-          <div class="category-input__container">
-            <div class="category-input allEvents">
+      <div class="container-events">
+        <section class="check-container">
+          <article class="checkbox-search">
+            <div class="input-search">
               <input
-                type="checkbox"
-                name="allEvents"
-                id="allEvents"
+                type="text"
+                class="input-text"
+                placeholder="Busca un evento"
                 class="input"
               />
-              <label class="label-check" for="allEvents"
-                >Todos los eventos</label
-              >
+              <i class="bi bi-search"></i>
             </div>
-            <div class="category-input upcommingEvents">
-              <input
-                type="checkbox"
-                name="upcommingEvents"
-                id="upcommingEvents"
-                class="input"
-              />
-              <label class="label-check" for="upcommingEvents"
-                >Eventos próximos</label
-              >
+            <div class="category-input__container">
+              <div class="category-input allEvents">
+                <input
+                  type="checkbox"
+                  name="allEvents"
+                  id="allEvents"
+                  class="input"
+                />
+                <label class="label-check" for="allEvents"
+                  >Todos los eventos</label
+                >
+              </div>
+              <div class="category-input upcommingEvents">
+                <input
+                  type="checkbox"
+                  name="upcommingEvents"
+                  id="upcommingEvents"
+                  class="input"
+                />
+                <label class="label-check" for="upcommingEvents"
+                  >Eventos próximos</label
+                >
+              </div>
+              <div class="category-input pastEvents">
+                <input
+                  type="checkbox"
+                  name="pastEvents"
+                  id="pastEvents"
+                  class="input"
+                />
+                <label class="label-check" for="pastEvents"
+                  >Eventos pasados</label
+                >
+              </div>
             </div>
-            <div class="category-input pastEvents">
-              <input
-                type="checkbox"
-                name="pastEvents"
-                id="pastEvents"
-                class="input"
-              />
-              <label class="label-check" for="pastEvents"
-                >Eventos pasados</label
-              >
+          </article>
+        </section>
+        <section class="cards-container">
+          <div class="cards-events"><p>No hay eventos con ese nombre</p></div>
+        </section>
+        <section class="cards-show-overlay"></section>
+      </div>
+      <div class="container-contact">
+        <section class="sec-connect" id="contact">
+          <article class="contact">
+            <div class="contact-right">
+              <div class="contact-inputs-container">
+                <form class="form" action="">
+                  <div class="inputs">
+                    <input
+                      type="text"
+                      class="first-name"
+                      id="firstName"
+                      placeholder="Nombre"
+                      required
+                      maxlength="40"
+                    />
+                    <input
+                      type="email"
+                      class="mail"
+                      id="mail"
+                      placeholder="email"
+                      required
+                      maxlength="60"
+                    />
+                  </div>
+                  <textarea
+                    id="message"
+                    cols="30"
+                    rows="10"
+                    placeholder="Mensaje"
+                    required
+                    maxlength="730"
+                  ></textarea>
+                  <div class="messageContainer"></div>
+                  <input
+                    type="submit"
+                    class="btn btn-disable"
+                    value="Enviar mensaje"
+                  />
+                  <div id="spinner">
+                    <div class="sk-chase">
+                      <div class="sk-chase-dot"></div>
+                      <div class="sk-chase-dot"></div>
+                      <div class="sk-chase-dot"></div>
+                      <div class="sk-chase-dot"></div>
+                      <div class="sk-chase-dot"></div>
+                      <div class="sk-chase-dot"></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
-        </article>
-      </section>
-      <section class="cards-container">
-        <div class="cards-events"><p>No hay eventos con ese nombre</p></div>
-      </section>
-      <section class="cards-show-overlay"></section>
+          </article>
+        </section>
+      </div>
     </main>
     <footer>
       <div class="footer-container">
