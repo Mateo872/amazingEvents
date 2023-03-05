@@ -184,9 +184,64 @@ let events = [
         estimate: 3000,
         price: 400,
       },
+      {
+        id: 13,
+        image: "mundial.webp",
+        name: "Mundial Qatar 2022",
+        date: "2022-18-12",
+        description: "Argentina campeón del Mundial 2022",
+        descriptionDetail:
+          "La Copa Mundial de la FIFA, también conocida como Copa Mundial de Fútbol, Copa del Mundo o simplemente Mundial, y cuyo nombre original fue Campeonato Mundial de Fútbol, es el principal torneo internacional oficial de fútbol masculino a nivel de selecciones nacionales en el mundo.",
+        category: "Futbol",
+        capacity: 60000,
+        assistance: 60000,
+        price: 1200,
+      },
+      {
+        id: 14,
+        image: "riverLibertadores.webp",
+        name: "Copa Libertadores 2018",
+        date: "2018-12-09",
+        description:
+          "El partido más importante de la historia del fútbol. <br> Ganador: River Plate.",
+        descriptionDetail:
+          "La Copa Libertadores de América, denominada oficialmente Copa Conmebol Libertadores desde 2017, y llamada simplemente Copa Libertadores.",
+        category: "Futbol",
+        capacity: 70000,
+        assistance: 70000,
+        price: 9000,
+      },
+      {
+        id: 15,
+        image: "theBest.webp",
+        name: "Premios The Best 2023",
+        date: "2023-27-02",
+        description: "Ganador del premio The Best: Lionel Messi.",
+        descriptionDetail:
+          "The Best FIFA es un premio individual de fútbol, que la FIFA decidió crear en el año 2016 con la finalidad de reconocer a los mejores jugadores del mundo de cada temporada.",
+        category: "Futbol",
+        capacity: 70000,
+        assistance: 70000,
+        price: 0,
+      },
+      {
+        id: 16,
+        image: "champions.jpeg",
+        name: "Champions League 2022",
+        date: "2022-28-05",
+        description: "Ganador de la Champions: <br> Real Madrid.",
+        descriptionDetail:
+          "La Liga de Campeones de la UEFA, también conocida como Copa de Europa, es el torneo internacional oficial de fútbol más prestigioso a nivel de clubes en Europa.",
+        category: "Futbol",
+        capacity: 90000,
+        assistance: 90000,
+        price: 7000,
+      },
     ],
   },
 ];
+
+let cards = [];
 
 let sliderTitle = document.querySelector(".slider-title");
 
@@ -211,10 +266,10 @@ inputCheck.forEach((check) => check.addEventListener("click", checked));
 
 let indexArrow = 1;
 
-function upcommingEvents(e) {
-  e.preventDefault();
+let cardFilter = [];
 
-  const cardFilter = eventsFilter.filter((estimate) => estimate.estimate);
+function upcommingEvents() {
+  cardFilter = eventsFilter.filter((estimate) => estimate.estimate);
 
   if (cardFilter) {
     addCard(cardFilter);
@@ -233,13 +288,13 @@ function upcommingEvents(e) {
   timeOut();
 }
 
-function pastEvents(e) {
-  e.preventDefault();
+let cardFilterPast = [];
 
-  const cardFilter = eventsFilter.filter((estimate) => estimate.assistance);
+function pastEvents() {
+  cardFilterPast = eventsFilter.filter((estimate) => estimate.assistance);
 
-  if (cardFilter) {
-    addCard(cardFilter);
+  if (cardFilterPast) {
+    addCard(cardFilterPast);
   }
 
   indexArrow = 3;
@@ -300,8 +355,18 @@ function checked(e) {
     pastEvents();
   } else if (valueCheck === "contact") {
     indexArrow = 4;
+    navbarLinksStats.classList.remove("active");
+    navbarLinksHome.classList.remove("active");
+    navbarLinksUpcomming.classList.remove("active");
+    navbarLinksPast.classList.remove("active");
+    navbarLinksContact.classList.add("active");
   } else {
     indexArrow = 5;
+    navbarLinksContact.classList.remove("active");
+    navbarLinksHome.classList.remove("active");
+    navbarLinksUpcomming.classList.remove("active");
+    navbarLinksPast.classList.remove("active");
+    navbarLinksStats.classList.add("active");
   }
 }
 
@@ -321,8 +386,33 @@ const navbarLinksPast = document.querySelector(".navbar-links-past");
 const navbarLinksContact = document.querySelector(".navbar-links-contact");
 const navbarLinksStats = document.querySelector(".navbar-links-stats");
 
-navbarLinksPast.addEventListener("click", pastEvents);
-navbarLinksUpcomming.addEventListener("click", upcommingEvents);
+navbarLinksHome.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  addCard(eventsFilter);
+
+  sliderTitle.innerText = "Inicio";
+  indexArrow = 1;
+
+  checkAllEvents.checked = true;
+  checkUpcommingEvents.checked = false;
+  checkPastEvents.checked = false;
+
+  navbarLinksContact.classList.remove("active");
+  navbarLinksStats.classList.remove("active");
+  navbarLinksUpcomming.classList.remove("active");
+  navbarLinksPast.classList.remove("active");
+  navbarLinksHome.classList.add("active");
+});
+navbarLinksPast.addEventListener("click", (e) => {
+  e.preventDefault();
+  pastEvents();
+});
+
+navbarLinksUpcomming.addEventListener("click", (e) => {
+  e.preventDefault();
+  upcommingEvents();
+});
 
 function timeOut() {
   sliderTitle.style.transform = "scale(.8)";
@@ -434,39 +524,32 @@ function arrowMinus() {
 function search(e) {
   const letter = e.target.value;
 
-  checkAllEvents.checked = false;
-  checkPastEvents.checked = false;
-  checkUpcommingEvents.checked = false;
-
   const data = eventsFilter.filter((lett) =>
     lett.name.toLowerCase().includes(letter.toLowerCase())
+  );
+
+  const filterUppercomming = cardFilter.filter((name) =>
+    name.name.toLowerCase().includes(letter.toLowerCase())
+  );
+
+  const filterPast = cardFilterPast.filter((name) =>
+    name.name.toLowerCase().includes(letter.toLowerCase())
   );
 
   if (data.length == 0) {
     cardsContainer.innerHTML = "";
     cardsContainer.appendChild(cardsEvents);
+  } else if (checkUpcommingEvents.checked == true) {
+    addCard(filterUppercomming);
+  } else if (checkPastEvents.checked == true) {
+    addCard(filterPast);
   } else {
     addCard(data);
-    checkAllEvents.checked = true;
-    checkPastEvents.checked = false;
-    checkUpcommingEvents.checked = false;
     sliderTitle.innerText = "Inicio";
     navbarLinksHome.classList.add("active");
     navbarLinksUpcomming.classList.remove("active");
     navbarLinksPast.classList.remove("active");
   }
-
-  // const filtered = eventsFilter.filter((event) => event.estimate);
-  // const filteredEstimate = filtered.map((event) => {});
-
-  // console.log(filtered2);
-
-  // if (data.length == 0) {
-  //   cardsContainer.innerHTML = "";
-  //   cardsContainer.appendChild(cardsEvents);
-  // } else if (checkUpcommingEvents.checked == true && filtered) {
-  //   addCard(filteredEstimate);
-  // }
 }
 
 function addCard(data) {
@@ -479,6 +562,7 @@ function addCard(data) {
   } else {
     cards.push(...data);
   }
+
   cardsContainer.innerHTML = "";
 
   cards.forEach((event) => {
@@ -569,7 +653,7 @@ function windowScroll() {
     const header = document.querySelector("header");
     const navbarLinks = document.querySelectorAll(".navbar-links");
 
-    if (window.innerWidth == 390) {
+    if (window.innerWidth === 390) {
       if (window.scrollY >= 70) {
         header.style.borderBottom = "none";
         header.style.backgroundColor = "#fdfdfd";
@@ -584,16 +668,17 @@ function windowScroll() {
         menuContainer.style.backgroundColor = "#fdfdfd";
         navbarLinks.forEach((navbar) => (navbar.style.color = "#1e1e1e"));
       }
-    } else {
+    } else if (window.innerWidth >= 768) {
       if (window.scrollY >= 70) {
         header.style.borderBottom = "none";
         header.style.backgroundColor = "#fdfdfd";
         header.style.transition = ".5s";
-        navbarLinks.forEach((navbar) => (navbar.style.color = "#1e1e1e"));
         menuContainer.style.backgroundColor = "transparent";
+        navbarLinks.forEach((navbar) => (navbar.style.color = "#1e1e1e"));
       } else {
         header.style.borderBottom = "1px solid #fdfdfd";
         header.style.backgroundColor = "transparent";
+        menuContainer.style.backgroundColor = "transparent";
         navbarLinks.forEach((navbar) => (navbar.style.color = "#fdfdfd"));
       }
     }
