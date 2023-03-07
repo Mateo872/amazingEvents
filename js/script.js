@@ -1,18 +1,14 @@
-const btnHambur = document.querySelector(".bi-list");
-const menuContainer = document.querySelector(".menu-container");
-const menu = document.querySelector(".menu");
-const body = document.body;
-
-btnHambur.addEventListener("click", () => {
-  menuContainer.style.display = "flex";
-  menuContainer.classList.toggle("menu-visible");
-  body.classList.toggle("background-overlay");
-  cardOverlay.style.display = "none";
-});
+const dateNow = new Date();
+const year = dateNow.getFullYear();
+const month = dateNow.getMonth() + 1;
+const day = dateNow.getDate();
+const hour = dateNow.getHours();
+const minutes = dateNow.getMinutes();
+const seconds = dateNow.getSeconds();
 
 let events = [
   {
-    fechaActual: "2022-01-01",
+    fechaActual: [year, month, day, hour, minutes, seconds],
     eventos: [
       {
         id: 1,
@@ -48,7 +44,7 @@ let events = [
         id: 3,
         image: "Fiesta de disfraces1.jpg",
         name: "Noche de Halloween",
-        date: "2022-02-12",
+        date: "2023-06-12",
         description:
           "Ven con tu personaje disfras mas aterrador para ganar increibles premios.",
         descriptionDetail:
@@ -63,7 +59,7 @@ let events = [
         id: 4,
         image: "Concierto de musica1.jpg",
         name: "Metallica in concert",
-        date: "2022-01-22",
+        date: "2023-10-22",
         description: "Unico recital de la banda mas emblematica. ",
         descriptionDetail:
           "Ven a disfrutar del concierto de la banda más famosa de todos los tiempos. Invitados especiales.",
@@ -107,7 +103,7 @@ let events = [
         id: 7,
         image: "Cine7.jpg",
         name: "Avengers",
-        date: "2022-10-15",
+        date: "2023-10-15",
         description:
           "Premier en 3d de Avengers de Marvel el inicio de una saga epica con tus mejores superheroes.",
         descriptionDetail:
@@ -126,7 +122,7 @@ let events = [
         description: "Presentación de Cristiano Ronaldo en su nuevo club.",
         descriptionDetail:
           "Cristiano Ronaldo, la estrella del momento, va a ser presentado por el Al Nassr; un equipo de Arabia.",
-        category: "Presentacion",
+        category: "Futbol",
         capacity: 9000,
         estimate: 9000,
         price: 500,
@@ -149,13 +145,13 @@ let events = [
         id: 10,
         image: "monumental.jfif",
         name: "Estadio Monumental",
-        date: "2022-01-08",
+        date: "2023-08-08",
         description: "Ven a ver un partido en el mejor estadio de América.",
         descriptionDetail:
           "Además de contar con el primer y único campo de juego con tecnología híbrida con sistemas de aireación y climatización del país, el Monumental contará con nuevas tribunas bajas inferiores, 180 palcos, 926 plateas hospitality, restaurante 24/7 y circulación 360° en palcos, tres nuevos niveles de estacionamiento y nuevo...",
-        category: "Partido",
-        capacity: 83.214,
-        estimate: 83.214,
+        category: "Futbol",
+        capacity: 83214,
+        estimate: 83214,
         price: 2000,
       },
       {
@@ -194,7 +190,7 @@ let events = [
           "La Copa Mundial de la FIFA, también conocida como Copa Mundial de Fútbol, Copa del Mundo o simplemente Mundial, y cuyo nombre original fue Campeonato Mundial de Fútbol, es el principal torneo internacional oficial de fútbol masculino a nivel de selecciones nacionales en el mundo.",
         category: "Futbol",
         capacity: 60000,
-        assistance: 60000,
+        assistance: 51000,
         price: 1200,
       },
       {
@@ -208,7 +204,7 @@ let events = [
           "La Copa Libertadores de América, denominada oficialmente Copa Conmebol Libertadores desde 2017, y llamada simplemente Copa Libertadores.",
         category: "Futbol",
         capacity: 70000,
-        assistance: 70000,
+        assistance: 63000,
         price: 9000,
       },
       {
@@ -221,7 +217,7 @@ let events = [
           "The Best FIFA es un premio individual de fútbol, que la FIFA decidió crear en el año 2016 con la finalidad de reconocer a los mejores jugadores del mundo de cada temporada.",
         category: "Futbol",
         capacity: 70000,
-        assistance: 70000,
+        assistance: 68400,
         price: 0,
       },
       {
@@ -234,12 +230,24 @@ let events = [
           "La Liga de Campeones de la UEFA, también conocida como Copa de Europa, es el torneo internacional oficial de fútbol más prestigioso a nivel de clubes en Europa.",
         category: "Futbol",
         capacity: 90000,
-        assistance: 90000,
+        assistance: 89000,
         price: 7000,
       },
     ],
   },
 ];
+
+const btnHambur = document.querySelector(".bi-list");
+const menuContainer = document.querySelector(".menu-container");
+const menu = document.querySelector(".menu");
+const body = document.body;
+
+btnHambur.addEventListener("click", () => {
+  menuContainer.style.display = "flex";
+  menuContainer.classList.toggle("menu-visible");
+  body.classList.toggle("background-overlay");
+  cardOverlay.style.display = "none";
+});
 
 let cards = [];
 
@@ -276,6 +284,7 @@ function upcommingEvents() {
   }
 
   indexArrow = 2;
+
   checkAllEvents.checked = false;
   checkPastEvents.checked = false;
   checkUpcommingEvents.checked = true;
@@ -298,6 +307,7 @@ function pastEvents() {
   }
 
   indexArrow = 3;
+
   checkAllEvents.checked = false;
   checkUpcommingEvents.checked = false;
   checkPastEvents.checked = true;
@@ -403,6 +413,10 @@ navbarLinksHome.addEventListener("click", (e) => {
   navbarLinksUpcomming.classList.remove("active");
   navbarLinksPast.classList.remove("active");
   navbarLinksHome.classList.add("active");
+
+  containerContact.style.display = "none";
+  containerStats.style.display = "none";
+  containerEvents.style.display = "block";
 });
 
 const containerEvents = document.querySelector(".container-events");
@@ -410,11 +424,17 @@ const containerEvents = document.querySelector(".container-events");
 navbarLinksPast.addEventListener("click", (e) => {
   e.preventDefault();
   pastEvents();
+  containerContact.style.display = "none";
+  containerStats.style.display = "none";
+  containerEvents.style.display = "block";
 });
 
 navbarLinksUpcomming.addEventListener("click", (e) => {
   e.preventDefault();
   upcommingEvents();
+  containerContact.style.display = "none";
+  containerStats.style.display = "none";
+  containerEvents.style.display = "block";
 });
 
 navbarLinksContact.addEventListener("click", (e) => {
@@ -422,13 +442,23 @@ navbarLinksContact.addEventListener("click", (e) => {
   contact();
 });
 
+navbarLinksStats.addEventListener("click", (e) => {
+  e.preventDefault();
+  stats();
+});
+
 const containerContact = document.querySelector(".container-contact");
+const containerStats = document.querySelector(".container-stats");
+
+containerContact.style.display = "none";
+containerStats.style.display = "none";
 
 function contact() {
   containerContact.style.display = "block";
 
   indexArrow = 4;
 
+  containerStats.style.display = "none";
   containerEvents.style.display = "none";
   sliderTitle.innerText = "Contáctame";
   navbarLinksPast.classList.remove("active");
@@ -436,6 +466,139 @@ function contact() {
   navbarLinksUpcomming.classList.remove("active");
   navbarLinksHome.classList.remove("active");
   navbarLinksContact.classList.add("active");
+}
+
+function stats() {
+  containerStats.style.display = "flex";
+
+  indexArrow = 5;
+
+  containerContact.style.display = "none";
+  containerEvents.style.display = "none";
+
+  sliderTitle.innerText = "Estadísticas";
+  navbarLinksPast.classList.remove("active");
+  navbarLinksUpcomming.classList.remove("active");
+  navbarLinksHome.classList.remove("active");
+  navbarLinksContact.classList.remove("active");
+  navbarLinksStats.classList.add("active");
+
+  cardFilterPast = eventsFilter.filter((estimate) => estimate.assistance);
+
+  const filterCapacity = eventsFilter.filter((estimate) => estimate.capacity);
+
+  const filterMax = cardFilterPast.sort((a, b) => {
+    if ((a.assistance * 100) / a.capacity < (b.assistance * 100) / b.capacity) {
+      return 1;
+    }
+    if ((a.assistance * 100) / a.capacity > (b.assistance * 100) / b.capacity) {
+      return -1;
+    }
+    return 0;
+  });
+
+  const capacity = filterCapacity.sort((a, b) => {
+    if (a.capacity < b.capacity) {
+      return 1;
+    }
+    if (a.capacity > b.capacity) {
+      return -1;
+    }
+    return 0;
+  });
+
+  const eventsCategory = eventsFilter.filter((estimate) => estimate.estimate);
+
+  const revenues = eventsCategory.sort((a, b) => {
+    if (a.estimate < b.estimate) {
+      return 1;
+    }
+    if (a.estimate > b.estimate) {
+      return -1;
+    }
+    return 0;
+  });
+
+  containerStats.innerHTML = `
+  <h2>Estadísticas de los eventos</h2>
+      <table>
+      <tr>
+                  <th>Eventos con mayor porcentaje de audiencia</th>
+                  <td>${cardFilterPast[0].name} con ${parseInt(
+    (filterMax[0].assistance * 100) / filterMax[0].capacity
+  )}%</td>
+                  <td>${cardFilterPast[1].name} con ${parseInt(
+    (filterMax[1].assistance * 100) / filterMax[1].capacity
+  )}%</td>
+                  <td>${cardFilterPast[2].name} con ${parseInt(
+    (filterMax[2].assistance * 100) / filterMax[2].capacity
+  )}%</td>
+      
+        <th>Eventos con menor porcentaje de audiencia</th>
+        <td>${cardFilterPast.reverse()[0].name} con ${parseInt(
+    (cardFilterPast[0].assistance * 100) / cardFilterPast[0].capacity
+  )}%</td>
+        <td>${cardFilterPast[1].name} con ${parseInt(
+    (cardFilterPast[1].assistance * 100) / cardFilterPast[1].capacity
+  )}%</td>
+        <td>${cardFilterPast[2].name} con ${parseInt(
+    (cardFilterPast[2].assistance * 100) / cardFilterPast[2].capacity
+  )}%</td>
+        <th>Eventos con mayor capacidad</th>
+        <td>${capacity[0].name} con ${capacity[0].capacity} personas</td>
+        <td>${capacity[1].name} con ${capacity[1].capacity} personas</td>
+        <td>${capacity[2].name} con ${capacity[2].capacity} personas</td>
+      </tr>
+    </table>
+
+  <h2>Estadísticas de los próximos eventos por categoria</h2>
+    <table>
+    <tr>
+        <th>Categorías</th>
+        <td>${revenues[0].name}</td>
+        <td>${revenues[1].name}</td>
+        <td>${revenues[2].name}</td>
+        <th>Ingresos</th>
+        <td>$${revenues[0].price * revenues[0].estimate}</td>
+        <td>$${revenues[1].price * revenues[1].estimate}</td>
+        <td>$${revenues[2].price * revenues[2].estimate}</td>
+        <th>Porcentaje de audiencia</th>
+        <td>${parseInt(
+          (revenues[0].estimate * 100) / revenues[0].capacity
+        )}%</td>
+        <td>${parseInt(
+          (revenues[0].estimate * 100) / revenues[0].capacity
+        )}%</td>
+        <td>${parseInt(
+          (revenues[0].estimate * 100) / revenues[0].capacity
+        )}%</td>
+    </tr>
+    </table>
+
+<h2>Estadísticas de los pasados eventos por categoria</h2>
+  <table>
+  <tr>
+      <th>Categorías</th>
+      <td>${cardFilterPast[0].name}</td>
+      <td>${cardFilterPast[1].name}</td>
+      <td>${cardFilterPast[2].name}</td>
+      <th>Ingresos</th>
+      <td>$${cardFilterPast[0].price * cardFilterPast[0].assistance}</td>
+      <td>$${cardFilterPast[1].price * cardFilterPast[1].assistance}</td>
+      <td>$${cardFilterPast[2].price * cardFilterPast[2].assistance}</td>
+      <th>Porcentaje de audiencia</th>
+      <td>${parseInt(
+        (cardFilterPast[0].assistance * 100) / cardFilterPast[0].capacity
+      )}%</td>
+      <td>${parseInt(
+        (cardFilterPast[0].assistance * 100) / cardFilterPast[0].capacity
+      )}%</td>
+      <td>${parseInt(
+        (cardFilterPast[0].assistance * 100) / cardFilterPast[0].capacity
+      )}%</td>
+  </tr>
+  </table>
+`;
 }
 
 function timeOut() {
@@ -468,16 +631,19 @@ function arrowPlus() {
     navbarLinksHome.classList.add("active");
     containerEvents.style.display = "block";
     containerContact.style.display = "none";
+    containerStats.style.display = "none";
     addCard(eventsFilter);
   } else if (indexArrow == 2) {
     sliderTitle.innerText = "Eventos próximos";
     containerEvents.style.display = "block";
     containerContact.style.display = "none";
+    containerStats.style.display = "none";
     upcommingEvents();
   } else if (indexArrow == 3) {
     sliderTitle.innerText = "Eventos pasados";
     containerEvents.style.display = "block";
     containerContact.style.display = "none";
+    containerStats.style.display = "none";
     pastEvents();
   } else if (indexArrow == 4) {
     sliderTitle.innerText = "Contáctame";
@@ -489,10 +655,12 @@ function arrowPlus() {
     navbarLinksPast.classList.remove("active");
     navbarLinksUpcomming.classList.remove("active");
     navbarLinksContact.classList.add("active");
+    containerStats.style.display = "none";
     contact();
   } else if (indexArrow == 5) {
     sliderTitle.innerText = "Estadísticas";
-    containerEvents.style.display = "block";
+    containerStats.style.display = "flex";
+    containerEvents.style.display = "none";
     containerContact.style.display = "none";
     checkAllEvents.checked = false;
     checkUpcommingEvents.checked = false;
@@ -502,6 +670,7 @@ function arrowPlus() {
     navbarLinksPast.classList.remove("active");
     navbarLinksUpcomming.classList.remove("active");
     navbarLinksStats.classList.add("active");
+    stats();
   }
 }
 
@@ -515,6 +684,7 @@ function arrowMinus() {
   }
 
   if (indexArrow == 5) {
+    stats();
     sliderTitle.innerText = "Estadísticas";
     checkAllEvents.checked = false;
     checkUpcommingEvents.checked = false;
@@ -524,8 +694,9 @@ function arrowMinus() {
     navbarLinksPast.classList.remove("active");
     navbarLinksUpcomming.classList.remove("active");
     navbarLinksStats.classList.add("active");
-    containerEvents.style.display = "block";
+    containerEvents.style.display = "none";
     containerContact.style.display = "none";
+    containerStats.style.display = "flex";
   } else if (indexArrow == 4) {
     sliderTitle.innerText = "Contáctame";
     checkAllEvents.checked = false;
@@ -537,19 +708,23 @@ function arrowMinus() {
     navbarLinksUpcomming.classList.remove("active");
     navbarLinksContact.classList.add("active");
     contact();
+    containerStats.style.display = "none";
   } else if (indexArrow == 3) {
     sliderTitle.innerText = "Eventos pasados";
     pastEvents();
+    containerStats.style.display = "none";
     containerEvents.style.display = "block";
     containerContact.style.display = "none";
   } else if (indexArrow == 2) {
     sliderTitle.innerText = "Eventos próximos";
     upcommingEvents();
+    containerStats.style.display = "none";
     containerEvents.style.display = "block";
     containerContact.style.display = "none";
   } else if (indexArrow == 1) {
     sliderTitle.innerText = "Inicio";
     addCard(eventsFilter);
+    containerStats.style.display = "none";
     containerEvents.style.display = "block";
     containerContact.style.display = "none";
     checkPastEvents.checked = false;
@@ -621,6 +796,7 @@ function addCard(data) {
         </div>
         </article>`;
   });
+
   ShowMore();
 
   if (window.innerWidth > 769) {
@@ -680,6 +856,7 @@ function showCardMore(e) {
 Personas ${dataEvent.estimate || dataEvent.assistance}
 </p> */
 }
+
 cardOverlay.addEventListener("click", (e) => {
   if (
     e.target.className == "cards-show-overlay" ||
@@ -738,11 +915,14 @@ const messageValidate = document.createElement("p");
 const form = document.querySelector(".form");
 const er =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 btnSubmit.disabled = true;
+
 firstName.addEventListener("blur", inputValue);
 email.addEventListener("blur", inputValue);
 messageInput.addEventListener("blur", inputValue);
 btnSubmit.addEventListener("click", sendEmail);
+
 function inputValue(e) {
   if (e.target.value.length > 0) {
     e.target.classList.remove("border-error");

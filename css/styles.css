@@ -455,6 +455,33 @@ main .sec-connect .contact .contact-right .contact-inputs-container .btn:hover {
   color: #c60d61;
   transition: 0.3s;
 }
+main .container-stats {
+  margin-top: 4rem;
+  color: #fdfdfd;
+  flex-direction: column;
+  text-align: center;
+}
+main .container-stats h2 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+main .container-stats table {
+  margin: 1rem 0;
+}
+main .container-stats table tr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .container-stats table tr th {
+  margin: 1rem 0;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+main .container-stats table tr td {
+  margin: 0.8rem 0;
+  opacity: 0.8;
+}
 
 footer {
   padding: 1rem 0;
@@ -484,6 +511,7 @@ footer .footer-container .socials .socials-icon {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 footer .footer-container .socials .socials-icon a {
   color: #1e1e1e;
@@ -814,6 +842,33 @@ footer .footer-container .socials .socials-icon a {
     margin-top: 1rem;
     font-size: 1rem;
     padding: 1rem;
+  }
+  main .container-stats {
+    margin-top: 4rem;
+    color: #fdfdfd;
+    flex-direction: column;
+    text-align: center;
+  }
+  main .container-stats h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  main .container-stats table {
+    margin: 1rem 0;
+  }
+  main .container-stats table tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  main .container-stats table tr th {
+    margin: 1rem 0;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  main .container-stats table tr td {
+    margin: 0.8rem 0;
+    opacity: 0.8;
   }
   footer {
     margin-top: 1rem;
