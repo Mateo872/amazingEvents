@@ -1,14 +1,5 @@
-const dateNow = new Date();
-const year = dateNow.getFullYear();
-const month = dateNow.getMonth() + 1;
-const day = dateNow.getDate();
-const hour = dateNow.getHours();
-const minutes = dateNow.getMinutes();
-const seconds = dateNow.getSeconds();
-
 let events = [
   {
-    fechaActual: [year, month, day, hour, minutes, seconds],
     eventos: [
       {
         id: 1,
