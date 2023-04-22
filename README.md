@@ -18,8 +18,8 @@ En resumen, esta plataforma ofrece una gestión completa de eventos con informac
 |------------|------|
 | HTML       | <img src="./img/html5.svg" alt="HTML logo" width="200" height="100"> |
 | CSS        | <img src="./img/css3.svg" alt="CSS logo" width="200" height="100"> |
-| SCSS       | <img src="./img/sass.svg.svg" alt="SCSS logo" width="200" height="100"> |
-| JavaScript | <img src="./img/javascript.svg.svg" alt="JavaScript logo" width="200" height="100"> |
-| API        | <img src="./img/swagger.svg.svg" alt="API logo" width="200" height="100"> |
+| SCSS       | <img src="./img/sass.svg" alt="SCSS logo" width="200" height="100"> |
+| JavaScript | <img src="./img/javascript.svg" alt="JavaScript logo" width="200" height="100"> |
+| API        | <img src="./img/swagger.svg" alt="API logo" width="200" height="100"> |
 
-### Estas tecnologías se combinaron para crear una plataforma completa y funcional para la gestión de eventos, que es fácil de usar y ofrece información detallada sobre los eventos y sus estadísticas.
+- Estas tecnologías se combinaron para crear una plataforma completa y funcional para la gestión de eventos, que es fácil de usar y ofrece información detallada sobre los eventos y sus estadísticas.
