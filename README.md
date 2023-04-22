@@ -14,10 +14,12 @@ En resumen, esta plataforma ofrece una gestión completa de eventos con informac
 
 ## Las tecnologías utilizadas en este proyecto son las siguientes:
 
-*HTML: Se utilizó para estructurar el contenido de las páginas web. <img src="./img/html5.svg" alt="HTML logo" width="200" height="100">
-*CSS: Se utilizó para dar estilo y diseño al contenido de las páginas web. <img src="./img/css3.svg" alt="HTML logo" width="200" height="100">
-*SCSS: Se utilizó para mejorar la eficiencia y la facilidad de mantenimiento del código CSS. <img src="./img/sass.svg" alt="HTML logo" width="200" height="100">
-*JavaScript: Se utilizó para agregar interactividad a la plataforma, como animaciones y validaciones de formularios. <img src="./img/javascript.svg" alt="HTML logo" width="200" height="100">
-\*API: Se utilizó para obtener información de los eventos y para mostrar las estadísticas en la plataforma. <img src="./img/swagger.svg" alt="HTML logo" width="200" height="100">
+| Tecnología | Logo |
+|------------|------|
+| HTML       | <img src="./img/html5.svg" alt="HTML logo" width="200" height="100"> |
+| CSS        | <img src="./img/css3.svg" alt="CSS logo" width="200" height="100"> |
+| SCSS       | <img src="./img/sass.svg.svg" alt="SCSS logo" width="200" height="100"> |
+| JavaScript | <img src="./img/javascript.svg.svg" alt="JavaScript logo" width="200" height="100"> |
+| API        | <img src="./img/swagger.svg.svg" alt="API logo" width="200" height="100"> |
 
 ### Estas tecnologías se combinaron para crear una plataforma completa y funcional para la gestión de eventos, que es fácil de usar y ofrece información detallada sobre los eventos y sus estadísticas.
