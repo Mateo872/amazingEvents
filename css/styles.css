@@ -189,12 +189,11 @@ main .check-container .checkbox-search .category-input__container .category-inpu
   margin-left: 0.25rem;
 }
 main .cards-container {
-  margin-top: 4rem;
   padding-bottom: 2rem;
 }
 main .cards-container .cards {
   width: 16.5rem;
-  height: 22rem;
+  height: 25rem;
   margin: 2rem auto 0;
   border: 2px solid rgba(221, 221, 221, 0.8666666667);
   text-align: center;
@@ -327,7 +326,7 @@ main .bi-x-lg:hover {
 }
 main .sec-connect {
   width: 72%;
-  margin: 7rem auto;
+  margin: 0 auto;
   text-align: center;
   color: #fdfdfd;
 }
