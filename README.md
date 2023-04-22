@@ -16,10 +16,10 @@
 
 | Tecnología | Logo |
 |------------|------|
-| HTML       | <img src="./img/html5.svg" alt="HTML logo" width="200" height="100" style="background-color: #E34F26;"> |
-| CSS        | <img src="./img/css3.svg" alt="CSS logo" width="200" height="100" style="background-color: #1572B6;"> |
-| SCSS       | <img src="./img/sass.svg" alt="SCSS logo" width="200" height="100" style="background-color: #CC6699;"> |
+| HTML       | <img src="./img/html5.svg" alt="HTML logo" width="200" height="100"> |
+| CSS        | <img src="./img/css3.svg" alt="CSS logo" width="200" height="100"> |
+| SCSS       | <img src="./img/sass.svg" alt="SCSS logo" width="200" height="100"> |
 | JavaScript | <img src="./img/javascript.svg" alt="JavaScript logo" width="200" height="100" style="background-color: #F7DF1E;"> |
-| API        | <img src="./img/swagger.svg" alt="API logo" width="200" height="100" style="background-color: #85EA2D;"> |
+| API        | <img src="./img/swagger.svg" alt="API logo" width="200" height="100"> |
 
 - Estas tecnologías se combinaron para crear una plataforma completa y funcional para la gestión de eventos, que es fácil de usar y ofrece información detallada sobre los eventos y sus estadísticas.
