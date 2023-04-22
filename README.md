@@ -14,10 +14,10 @@ En resumen, esta plataforma ofrece una gestión completa de eventos con informac
 
 ## Las tecnologías utilizadas en este proyecto son las siguientes:
 
-*HTML: Se utilizó para estructurar el contenido de las páginas web. ![HTML logo](./img/html5.svg){ width=200px height=100px }
-*CSS: Se utilizó para dar estilo y diseño al contenido de las páginas web. ![CSS logo](./img/css3.svg){ width=200px height=100px }
-*SCSS: Se utilizó para mejorar la eficiencia y la facilidad de mantenimiento del código CSS. ![SCSS logo](./img/sass.svg.svg){ width=200px height=100px }
-*JavaScript: Se utilizó para agregar interactividad a la plataforma, como animaciones y validaciones de formularios. ![JavaScript logo](./img/javascript.svg.svg){ width=200px height=100px }
-*API: Se utilizó para obtener información de los eventos y para mostrar las estadísticas en la plataforma. ![API logo](./img/swagger.svg.svg){ width=200px height=100px }
+*HTML: Se utilizó para estructurar el contenido de las páginas web. <img src="./img/html5.svg" alt="HTML logo" width="200" height="100">
+*CSS: Se utilizó para dar estilo y diseño al contenido de las páginas web. <img src="./img/css3.svg" alt="HTML logo" width="200" height="100">
+*SCSS: Se utilizó para mejorar la eficiencia y la facilidad de mantenimiento del código CSS. <img src="./img/sass.svg" alt="HTML logo" width="200" height="100">
+*JavaScript: Se utilizó para agregar interactividad a la plataforma, como animaciones y validaciones de formularios. <img src="./img/javascript.svg" alt="HTML logo" width="200" height="100">
+\*API: Se utilizó para obtener información de los eventos y para mostrar las estadísticas en la plataforma. <img src="./img/swagger.svg" alt="HTML logo" width="200" height="100">
 
 ### Estas tecnologías se combinaron para crear una plataforma completa y funcional para la gestión de eventos, que es fácil de usar y ofrece información detallada sobre los eventos y sus estadísticas.
