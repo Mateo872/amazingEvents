@@ -16,7 +16,7 @@ En resumen, esta plataforma ofrece una gestión completa de eventos con informac
 
 | Tecnología | Logo |
 |------------|------|
-| HTML       | <img src="./img/html5.svg" alt="HTML logo" width="200" height="100"> |
+| HTML       | <img src="./img/html5.svg" alt="HTML logo" width="200" height="100" style="color: #E34F26;"> |
 | CSS        | <img src="./img/css3.svg" alt="CSS logo" width="200" height="100"> |
 | SCSS       | <img src="./img/sass.svg" alt="SCSS logo" width="200" height="100"> |
 | JavaScript | <img src="./img/javascript.svg" alt="JavaScript logo" width="200" height="100"> |
