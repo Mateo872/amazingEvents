@@ -9,6 +9,21 @@
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: #1e1e1e;
+  &::-webkit-scrollbar {
+    width: 0.4rem;
+    background-color: #f8c0eb;
+    border-radius: 0.45rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #c60d61;
+    border-radius: 0.45rem;
+    &:hover {
+      background-color: #a40a4d;
+    }
+    &:active {
+      background-color: #870738;
+    }
+  }
 }
 
 .background-overlay {
@@ -99,9 +114,14 @@ main {
 
       i {
         cursor: pointer;
+        &:hover {
+          color: #c60d61;
+          transition: 0.3s;
+        }
       }
     }
   }
+
   .check-container {
     margin-top: 4rem;
     .checkbox-search {
@@ -131,7 +151,32 @@ main {
           font-size: 0.8rem;
         }
       }
+      .container_slider {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x proximity;
+        white-space: nowrap;
+        padding-bottom: 0.6rem;
+        &::-webkit-scrollbar {
+          height: 0.2rem;
+          background-color: #f8c0eb;
+          border-radius: 0.45rem;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: #c60d61;
+          border-radius: 0.45rem;
+          &:hover {
+            background-color: #a40a4d;
+          }
+          &:active {
+            background-color: #870738;
+          }
+        }
+      }
+
       .category-input__container {
+        width: 100%;
         margin-top: 1.2rem;
         display: flex;
         gap: 0.8rem;
@@ -142,6 +187,7 @@ main {
           display: flex;
           align-items: center;
           justify-content: space-between;
+          scroll-snap-align: center;
           label {
             margin-left: 0.25rem;
           }
@@ -640,10 +686,13 @@ footer {
             font-size: 0.8rem;
           }
         }
-        .category-input__container {
+        .container_slider {
           width: 60%;
+        }
+        .category-input__container {
           display: flex;
           justify-content: space-around;
+          padding-left: 39.3rem;
           .category-input {
             margin-top: 0.6rem;
             label {
@@ -740,6 +789,7 @@ footer {
       .checkbox-search {
         width: 100%;
         flex-direction: row;
+        gap: 1.5rem;
         .input-search {
           width: 60%;
           gap: 0.4rem;
@@ -764,6 +814,7 @@ footer {
           margin-top: 0;
           justify-content: start;
           gap: 2rem;
+          padding: 0;
           .category-input {
             margin-top: 0rem;
             label {

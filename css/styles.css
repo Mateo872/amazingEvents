@@ -9,6 +9,21 @@ body {
   font-family: "Ubuntu", sans-serif;
   background-color: #1e1e1e;
 }
+body::-webkit-scrollbar {
+  width: 0.4rem;
+  background-color: #f8c0eb;
+  border-radius: 0.45rem;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #c60d61;
+  border-radius: 0.45rem;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #a40a4d;
+}
+body::-webkit-scrollbar-thumb:active {
+  background-color: #870738;
+}
 
 .background-overlay {
   background-color: rgba(0, 0, 0, 0.93);
@@ -99,6 +114,10 @@ main .slider-container .slider h1 {
 main .slider-container .slider i {
   cursor: pointer;
 }
+main .slider-container .slider i:hover {
+  color: #c60d61;
+  transition: 0.3s;
+}
 main .check-container {
   margin-top: 4rem;
 }
@@ -129,7 +148,31 @@ main .check-container .checkbox-search .input-search input {
 main .check-container .checkbox-search .input-search i {
   font-size: 0.8rem;
 }
+main .check-container .checkbox-search .container_slider {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  white-space: nowrap;
+  padding-bottom: 0.6rem;
+}
+main .check-container .checkbox-search .container_slider::-webkit-scrollbar {
+  height: 0.2rem;
+  background-color: #f8c0eb;
+  border-radius: 0.45rem;
+}
+main .check-container .checkbox-search .container_slider::-webkit-scrollbar-thumb {
+  background-color: #c60d61;
+  border-radius: 0.45rem;
+}
+main .check-container .checkbox-search .container_slider::-webkit-scrollbar-thumb:hover {
+  background-color: #a40a4d;
+}
+main .check-container .checkbox-search .container_slider::-webkit-scrollbar-thumb:active {
+  background-color: #870738;
+}
 main .check-container .checkbox-search .category-input__container {
+  width: 100%;
   margin-top: 1.2rem;
   display: flex;
   gap: 0.8rem;
@@ -140,6 +183,7 @@ main .check-container .checkbox-search .category-input__container .category-inpu
   display: flex;
   align-items: center;
   justify-content: space-between;
+  scroll-snap-align: center;
 }
 main .check-container .checkbox-search .category-input__container .category-input label {
   margin-left: 0.25rem;
@@ -598,10 +642,13 @@ footer .footer-container .socials .socials-icon a {
   main .check-container .checkbox-search .input-search i {
     font-size: 0.8rem;
   }
-  main .check-container .checkbox-search .category-input__container {
+  main .check-container .checkbox-search .container_slider {
     width: 60%;
+  }
+  main .check-container .checkbox-search .category-input__container {
     display: flex;
     justify-content: space-around;
+    padding-left: 39.3rem;
   }
   main .check-container .checkbox-search .category-input__container .category-input {
     margin-top: 0.6rem;
@@ -675,6 +722,7 @@ footer .footer-container .socials .socials-icon a {
   main .check-container .checkbox-search {
     width: 100%;
     flex-direction: row;
+    gap: 1.5rem;
   }
   main .check-container .checkbox-search .input-search {
     width: 60%;
@@ -699,6 +747,7 @@ footer .footer-container .socials .socials-icon a {
     margin-top: 0;
     justify-content: start;
     gap: 2rem;
+    padding: 0;
   }
   main .check-container .checkbox-search .category-input__container .category-input {
     margin-top: 0rem;

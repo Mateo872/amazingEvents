@@ -1,233 +1,3 @@
-let events = [
-  {
-    eventos: [
-      {
-        id: 1,
-        image: "Feria de comidas7.jpg",
-        name: "Fiesta de las colectividades",
-        date: "2021-12-12",
-        description:
-          "Disfruta de tus platos favoritos, de los diferentes paises, en un evento unico para toda la familia.",
-        descriptionDetail:
-          "La 'Feria de las Colectividades' es una muestra dinámica de objetos culturales, que favorece la lectura de las tramas relacionales entre los actores sociales que concurren a la institución. ",
-        category: "Feria de Comida",
-        place: "Salón A",
-        capacity: 45000,
-        assistance: 42756,
-        price: 5,
-      },
-      {
-        id: 2,
-        image: "Salida al museo5.jpg",
-        name: "Parque Jurásico",
-        date: "2021-11-02",
-        description:
-          "Vamos al museo de paleontologia a hacer un recorrido increible para conocer los mas grandes dinosaurios.",
-        descriptionDetail:
-          "Relata las vivencias de un grupo de personas en un parque de diversiones con dinosaurios clonados, creado por un filántropo multimillonario y un equipo de científicos genetistas.",
-        category: "Salida al museo",
-        place: "Campo",
-        capacity: 82000,
-        assistance: 65892,
-        price: 15,
-      },
-      {
-        id: 3,
-        image: "Fiesta de disfraces1.jpg",
-        name: "Noche de Halloween",
-        date: "2023-06-12",
-        description:
-          "Ven con tu personaje disfras mas aterrador para ganar increibles premios.",
-        descriptionDetail:
-          "Disfraces, calabazas, historias de terror y juegos como truco o trato... la noche más oscura del año. ",
-        category: "Fiesta de Disfraces",
-        place: "Salón C",
-        capacity: 12000,
-        estimate: 9000,
-        price: 12,
-      },
-      {
-        id: 4,
-        image: "Concierto de musica1.jpg",
-        name: "Metallica in concert",
-        date: "2023-10-22",
-        description: "Unico recital de la banda mas emblematica. ",
-        descriptionDetail:
-          "Ven a disfrutar del concierto de la banda más famosa de todos los tiempos. Invitados especiales.",
-        category: "Concierto de Música",
-        place: "Salón A",
-        capacity: 138000,
-        estimate: 138000,
-        price: 150,
-      },
-      {
-        id: 5,
-        image: "Maraton3.jpg",
-        name: "10K por la vida",
-        date: "2021-03-01",
-        description:
-          "Ven y haz ejercicio, mejora tu salud y tu estilo de vida.",
-        descriptionDetail:
-          "Ponte en forma y ven a correr la última maratón del año. Gana increíbles premios.",
-        category: "Carrera",
-        place: "Campo de Futból",
-        capacity: 30000,
-        assistance: 25698,
-        price: 3,
-      },
-      {
-        id: 6,
-        image: "Libros7.jpg",
-        name: "Feria del libro Escolar",
-        date: "2021-10-15",
-        description:
-          "Trae tu libro escolar que ya no usas y lleva el que necesites.",
-        descriptionDetail:
-          "Ven a intercambiar libros y a tener comunicación con los clientes.",
-        category: "Intercambio de Libros",
-        place: "Salón D1",
-        capacity: 150000,
-        assistance: 123286,
-        price: 1,
-      },
-      {
-        id: 7,
-        image: "Cine7.jpg",
-        name: "Avengers",
-        date: "2023-10-15",
-        description:
-          "Premier en 3d de Avengers de Marvel el inicio de una saga epica con tus mejores superheroes.",
-        descriptionDetail:
-          "Los Vengadores restantes deben encontrar una manera de recuperar a sus aliados para un enfrentamiento épico con Thanos, el malvado que diezmó el planeta y el universo.",
-        category: "Vamos al Cine",
-        place: "Salón D1",
-        capacity: 9000,
-        estimate: 9000,
-        price: 250,
-      },
-      {
-        id: 8,
-        image: "ronaldo.webp",
-        name: "Cristiano Ronaldo",
-        date: "2023-07-08",
-        description: "Presentación de Cristiano Ronaldo en su nuevo club.",
-        descriptionDetail:
-          "Cristiano Ronaldo, la estrella del momento, va a ser presentado por el Al Nassr; un equipo de Arabia.",
-        category: "Futbol",
-        capacity: 9000,
-        estimate: 9000,
-        price: 500,
-      },
-      {
-        id: 9,
-        image: "feria de comida.jpg",
-        name: "Feria de comida",
-        date: "2023-09-08",
-        description:
-          "Ven con tu comida favorita para ganar increíbles premios.",
-        descriptionDetail:
-          "Una fiesta, feria o festival gastronómico o de comida es un evento de ocio cuyo tema central son los alimentos y/o bebidas, bien sea sobre una técnica culinaria o producto en particular o sobre la gastronomía de una región, una denominación de origen, entre otros.",
-        category: "Feria de comida",
-        capacity: 9000,
-        estimate: 9000,
-        price: 500,
-      },
-      {
-        id: 10,
-        image: "monumental.jfif",
-        name: "Estadio Monumental",
-        date: "2023-08-08",
-        description: "Ven a ver un partido en el mejor estadio de América.",
-        descriptionDetail:
-          "Además de contar con el primer y único campo de juego con tecnología híbrida con sistemas de aireación y climatización del país, el Monumental contará con nuevas tribunas bajas inferiores, 180 palcos, 926 plateas hospitality, restaurante 24/7 y circulación 360° en palcos, tres nuevos niveles de estacionamiento y nuevo...",
-        category: "Futbol",
-        capacity: 83214,
-        estimate: 83214,
-        price: 2000,
-      },
-      {
-        id: 11,
-        image: "charla.jpg",
-        name: "Conferencia sobre nuevos trabajos",
-        date: "2023-04-10",
-        description: "Vamos a presentar los trabajos del futuro.",
-        descriptionDetail:
-          "Reunión de autoridades políticas e intelectuales para tratar un tema importante; los trabajos del futuro.",
-        category: "Conferencia",
-        capacity: 8500,
-        estimate: 8500,
-        price: 1000,
-      },
-      {
-        id: 12,
-        image: "gamer.jpg",
-        name: "Los juegos que se vienen",
-        date: "2023-08-10",
-        description: "El futuro llegó. Nuevos juegos de realidad aumentada.",
-        descriptionDetail:
-          "Los videojuegos del futuro, impulsados por las mejoras en inteligencia artificial, gráficos de alta definición, procesamiento de imágenes digitales, sensores, diseño 3D y nuevas formas de interfaz hombre-consola, evolucionarán para ser más complejos, con mayor grado de personalización, y atmósferas más inmersivas...",
-        category: "Juegos",
-        capacity: 3000,
-        estimate: 3000,
-        price: 400,
-      },
-      {
-        id: 13,
-        image: "mundial.webp",
-        name: "Mundial Qatar 2022",
-        date: "2022-18-12",
-        description: "Argentina campeón del Mundial 2022",
-        descriptionDetail:
-          "La Copa Mundial de la FIFA, también conocida como Copa Mundial de Fútbol, Copa del Mundo o simplemente Mundial, y cuyo nombre original fue Campeonato Mundial de Fútbol, es el principal torneo internacional oficial de fútbol masculino a nivel de selecciones nacionales en el mundo.",
-        category: "Futbol",
-        capacity: 60000,
-        assistance: 51000,
-        price: 1200,
-      },
-      {
-        id: 14,
-        image: "riverLibertadores.webp",
-        name: "Copa Libertadores 2018",
-        date: "2018-12-09",
-        description:
-          "El partido más importante de la historia del fútbol. <br> Ganador: River Plate.",
-        descriptionDetail:
-          "La Copa Libertadores de América, denominada oficialmente Copa Conmebol Libertadores desde 2017, y llamada simplemente Copa Libertadores.",
-        category: "Futbol",
-        capacity: 70000,
-        assistance: 63000,
-        price: 9000,
-      },
-      {
-        id: 15,
-        image: "theBest.webp",
-        name: "Premios The Best 2023",
-        date: "2023-27-02",
-        description: "Ganador del premio The Best: Lionel Messi.",
-        descriptionDetail:
-          "The Best FIFA es un premio individual de fútbol, que la FIFA decidió crear en el año 2016 con la finalidad de reconocer a los mejores jugadores del mundo de cada temporada.",
-        category: "Futbol",
-        capacity: 70000,
-        assistance: 68400,
-        price: 0,
-      },
-      {
-        id: 16,
-        image: "champions.jpeg",
-        name: "Champions League 2022",
-        date: "2022-28-05",
-        description: "Ganador de la Champions: <br> Real Madrid.",
-        descriptionDetail:
-          "La Liga de Campeones de la UEFA, también conocida como Copa de Europa, es el torneo internacional oficial de fútbol más prestigioso a nivel de clubes en Europa.",
-        category: "Futbol",
-        capacity: 90000,
-        assistance: 89000,
-        price: 7000,
-      },
-    ],
-  },
-];
-
 const btnHambur = document.querySelector(".bi-list");
 const menuContainer = document.querySelector(".menu-container");
 const menu = document.querySelector(".menu");
@@ -240,11 +10,20 @@ btnHambur.addEventListener("click", () => {
   cardOverlay.style.display = "none";
 });
 
+let eventsFilter = [];
+
+async function init() {
+  await fetch("./js/AmazingEvents.json").then((resp) =>
+    resp.json().then((json) => (eventsFilter = json.events))
+  );
+  addCard(eventsFilter);
+}
+
+init();
+
 let cards = [];
 
 let sliderTitle = document.querySelector(".slider-title");
-
-const eventsFilter = events[0].eventos;
 
 const cardsContainer = document.querySelector(".cards-container");
 
@@ -270,15 +49,14 @@ let cardFilter = [];
 function upcommingEvents() {
   cardFilter = eventsFilter.filter((estimate) => estimate.estimate);
 
+  eventsCategory(cardFilter);
+
   if (cardFilter) {
     addCard(cardFilter);
   }
 
   indexArrow = 2;
 
-  checkAllEvents.checked = false;
-  checkPastEvents.checked = false;
-  checkUpcommingEvents.checked = true;
   navbarLinksHome.classList.remove("active");
   navbarLinksPast.classList.remove("active");
   navbarLinksContact.classList.remove("active");
@@ -286,6 +64,7 @@ function upcommingEvents() {
   navbarLinksUpcomming.classList.add("active");
   sliderTitle.innerText = "Eventos próximos";
   timeOut();
+  checkUpdate();
 }
 
 let cardFilterPast = [];
@@ -293,15 +72,14 @@ let cardFilterPast = [];
 function pastEvents() {
   cardFilterPast = eventsFilter.filter((estimate) => estimate.assistance);
 
+  eventsCategory(cardFilterPast);
+
   if (cardFilterPast) {
     addCard(cardFilterPast);
   }
 
   indexArrow = 3;
 
-  checkAllEvents.checked = false;
-  checkUpcommingEvents.checked = false;
-  checkPastEvents.checked = true;
   navbarLinksContact.classList.remove("active");
   navbarLinksStats.classList.remove("active");
   navbarLinksHome.classList.remove("active");
@@ -309,18 +87,57 @@ function pastEvents() {
   navbarLinksPast.classList.add("active");
   sliderTitle.innerText = "Eventos pasados";
   timeOut();
+  checkUpdate();
 }
 
-checkAllEvents.checked = true;
+const categoryContainer = document.querySelector(".category-input__container");
+
+let checkboxState = {};
+
+function eventsCategory(category) {
+  const categories = category.map((event) => event.category);
+  const unique = new Set(categories);
+
+  const checkbox = document.querySelectorAll(".input");
+
+  checkbox.forEach((check) => {
+    checkboxState[check.id] = check.checked;
+  });
+
+  categoryContainer.innerHTML = ``;
+
+  const lastCategories = [...unique];
+
+  lastCategories.map((event) => {
+    categoryContainer.innerHTML += `
+      <div class="category-input ${event}">
+        <input type="checkbox" name="${event}" id="${event}" class="input" />
+        <label class="label-check" for="${event}">
+          ${event}
+        </label>
+      </div>
+      `;
+  });
+}
+
+function updateCheckboxes() {
+  const checkbox = document.querySelectorAll(".input");
+
+  checkbox.forEach((check) => {
+    if (checkboxState[check.id] === true) {
+      check.checked = true;
+    } else {
+      check.checked = false;
+    }
+  });
+}
 
 function checked(e) {
   const valueCheck = e.target.id;
 
   if (valueCheck === "allEvents") {
     indexArrow = 1;
-    checkAllEvents.checked = true;
-    checkPastEvents.checked = false;
-    checkUpcommingEvents.checked = false;
+
     inputSearch.value = "";
     navbarLinksContact.classList.remove("active");
     navbarLinksStats.classList.remove("active");
@@ -332,9 +149,7 @@ function checked(e) {
     sliderTitle.innerText = "Inicio";
   } else if (valueCheck === "upcommingEvents") {
     indexArrow = 2;
-    checkUpcommingEvents.checked = true;
-    checkAllEvents.checked = false;
-    checkPastEvents.checked = false;
+
     inputSearch.value = "";
     navbarLinksContact.classList.remove("active");
     navbarLinksStats.classList.remove("active");
@@ -344,9 +159,7 @@ function checked(e) {
     upcommingEvents();
   } else if (valueCheck === "pastEvents") {
     indexArrow = 3;
-    checkPastEvents.checked = true;
-    checkAllEvents.checked = false;
-    checkUpcommingEvents.checked = false;
+
     inputSearch.value = "";
     navbarLinksContact.classList.remove("active");
     navbarLinksStats.classList.remove("active");
@@ -372,6 +185,7 @@ function checked(e) {
 }
 
 timeOut();
+
 addCard(eventsFilter);
 
 const arrowRight = document.querySelector(".bi-chevron-right");
@@ -394,10 +208,6 @@ navbarLinksHome.addEventListener("click", (e) => {
 
   sliderTitle.innerText = "Inicio";
   indexArrow = 1;
-
-  checkAllEvents.checked = true;
-  checkUpcommingEvents.checked = false;
-  checkPastEvents.checked = false;
 
   navbarLinksContact.classList.remove("active");
   navbarLinksStats.classList.remove("active");
@@ -536,9 +346,15 @@ function stats() {
     (cardFilterPast[2].assistance * 100) / cardFilterPast[2].capacity
   )}%</td>
         <th>Eventos con mayor capacidad</th>
-        <td>${capacity[0].name} con ${capacity[0].capacity} personas</td>
-        <td>${capacity[1].name} con ${capacity[1].capacity} personas</td>
-        <td>${capacity[2].name} con ${capacity[2].capacity} personas</td>
+        <td>${capacity[0].name} con ${parseFloat(
+    capacity[0].capacity
+  ).toLocaleString("es")} personas</td>
+        <td>${capacity[1].name} con ${parseFloat(
+    capacity[1].capacity
+  ).toLocaleString("es")} personas</td>
+        <td>${capacity[2].name} con ${parseFloat(
+    capacity[2].capacity
+  ).toLocaleString("es")} personas</td>
       </tr>
     </table>
 
@@ -550,9 +366,15 @@ function stats() {
         <td>${revenues[1].name}</td>
         <td>${revenues[2].name}</td>
         <th>Ingresos</th>
-        <td>$${revenues[0].price * revenues[0].estimate}</td>
-        <td>$${revenues[1].price * revenues[1].estimate}</td>
-        <td>$${revenues[2].price * revenues[2].estimate}</td>
+        <td>$${parseFloat(
+          revenues[0].price * revenues[0].estimate
+        ).toLocaleString("es")}</td>
+        <td>$${parseFloat(
+          revenues[1].price * revenues[1].estimate
+        ).toLocaleString("es")}</td>
+        <td>$${parseFloat(
+          revenues[2].price * revenues[2].estimate
+        ).toLocaleString("es")}</td>
         <th>Porcentaje de audiencia</th>
         <td>${parseInt(
           (revenues[0].estimate * 100) / revenues[0].capacity
@@ -574,9 +396,15 @@ function stats() {
       <td>${cardFilterPast[1].name}</td>
       <td>${cardFilterPast[2].name}</td>
       <th>Ingresos</th>
-      <td>$${cardFilterPast[0].price * cardFilterPast[0].assistance}</td>
-      <td>$${cardFilterPast[1].price * cardFilterPast[1].assistance}</td>
-      <td>$${cardFilterPast[2].price * cardFilterPast[2].assistance}</td>
+      <td>$${parseFloat(
+        cardFilterPast[0].price * cardFilterPast[0].assistance
+      ).toLocaleString("es")}</td>
+      <td>$${parseFloat(
+        cardFilterPast[1].price * cardFilterPast[1].assistance
+      ).toLocaleString("es")}</td>
+      <td>$${parseFloat(
+        cardFilterPast[2].price * cardFilterPast[2].assistance
+      ).toLocaleString("es")}</td>
       <th>Porcentaje de audiencia</th>
       <td>${parseInt(
         (cardFilterPast[0].assistance * 100) / cardFilterPast[0].capacity
@@ -610,11 +438,15 @@ function arrowPlus() {
     indexArrow++;
   }
 
+  inputSearch.value = "";
+
+  if (inputSearch.value === "") {
+    container_slider.style.display = "block";
+  }
+
   if (indexArrow == 1) {
     sliderTitle.innerText = "Inicio";
-    checkPastEvents.checked = false;
-    checkUpcommingEvents.checked = false;
-    checkAllEvents.checked = true;
+
     navbarLinksPast.classList.remove("active");
     navbarLinksContact.classList.remove("active");
     navbarLinksStats.classList.remove("active");
@@ -638,9 +470,7 @@ function arrowPlus() {
     pastEvents();
   } else if (indexArrow == 4) {
     sliderTitle.innerText = "Contáctame";
-    checkAllEvents.checked = false;
-    checkUpcommingEvents.checked = false;
-    checkPastEvents.checked = false;
+
     navbarLinksStats.classList.remove("active");
     navbarLinksHome.classList.remove("active");
     navbarLinksPast.classList.remove("active");
@@ -653,9 +483,7 @@ function arrowPlus() {
     containerStats.style.display = "flex";
     containerEvents.style.display = "none";
     containerContact.style.display = "none";
-    checkAllEvents.checked = false;
-    checkUpcommingEvents.checked = false;
-    checkPastEvents.checked = false;
+
     navbarLinksContact.classList.remove("active");
     navbarLinksHome.classList.remove("active");
     navbarLinksPast.classList.remove("active");
@@ -663,6 +491,7 @@ function arrowPlus() {
     navbarLinksStats.classList.add("active");
     stats();
   }
+  checkUpdate();
 }
 
 function arrowMinus() {
@@ -674,12 +503,16 @@ function arrowMinus() {
     indexArrow--;
   }
 
+  inputSearch.value = "";
+
+  if (inputSearch.value === "") {
+    container_slider.style.display = "block";
+  }
+
   if (indexArrow == 5) {
     stats();
     sliderTitle.innerText = "Estadísticas";
-    checkAllEvents.checked = false;
-    checkUpcommingEvents.checked = false;
-    checkPastEvents.checked = false;
+
     navbarLinksContact.classList.remove("active");
     navbarLinksHome.classList.remove("active");
     navbarLinksPast.classList.remove("active");
@@ -690,9 +523,7 @@ function arrowMinus() {
     containerStats.style.display = "flex";
   } else if (indexArrow == 4) {
     sliderTitle.innerText = "Contáctame";
-    checkAllEvents.checked = false;
-    checkUpcommingEvents.checked = false;
-    checkPastEvents.checked = false;
+
     navbarLinksStats.classList.remove("active");
     navbarLinksHome.classList.remove("active");
     navbarLinksPast.classList.remove("active");
@@ -718,15 +549,70 @@ function arrowMinus() {
     containerStats.style.display = "none";
     containerEvents.style.display = "block";
     containerContact.style.display = "none";
-    checkPastEvents.checked = false;
-    checkUpcommingEvents.checked = false;
-    checkAllEvents.checked = true;
+
     navbarLinksPast.classList.remove("active");
     navbarLinksContact.classList.remove("active");
     navbarLinksStats.classList.remove("active");
     navbarLinksUpcomming.classList.remove("active");
     navbarLinksHome.classList.add("active");
   }
+  checkUpdate();
+}
+
+function checkUpdate() {
+  const checkbox = document.querySelectorAll(".input");
+
+  checkbox.forEach((check) => {
+    check.addEventListener("click", (e) => {
+      if (sliderTitle.textContent === "Inicio") {
+        addCard(
+          eventsFilter.filter((id) => id.category === e.currentTarget.id)
+        );
+      }
+
+      if (sliderTitle.textContent === "Eventos próximos") {
+        addCard(cardFilter.filter((id) => id.category === e.currentTarget.id));
+      }
+
+      if (sliderTitle.textContent === "Eventos pasados") {
+        addCard(
+          cardFilterPast.filter((id) => id.category === e.currentTarget.id)
+        );
+      }
+
+      checkedTrue();
+    });
+  });
+}
+
+const container_slider = document.querySelector(".container_slider");
+
+function checkedTrue() {
+  const checkbox = document.querySelectorAll(".input");
+
+  checkbox.forEach((check) => {
+    check.checked = true;
+
+    check.addEventListener("click", (e) => {
+      if (e.target.checked === false && sliderTitle.textContent === "Inicio") {
+        eventsCategory(eventsFilter);
+        addCard(eventsFilter);
+      } else if (
+        e.target.checked === false &&
+        sliderTitle.textContent === "Eventos próximos"
+      ) {
+        eventsCategory(cardFilter);
+        addCard(cardFilter);
+      } else if (
+        e.target.checked === false &&
+        sliderTitle.textContent === "Eventos pasados"
+      ) {
+        eventsCategory(cardFilterPast);
+        addCard(cardFilterPast);
+      }
+      inputSearch.value = "";
+    });
+  });
 }
 
 function search(e) {
@@ -744,25 +630,63 @@ function search(e) {
     name.name.toLowerCase().includes(letter.toLowerCase())
   );
 
-  if (data.length == 0) {
-    cardsContainer.innerHTML = "";
-    cardsContainer.appendChild(cardsEvents);
-  } else if (checkUpcommingEvents.checked == true) {
-    addCard(filterUppercomming);
-  } else if (checkPastEvents.checked == true) {
-    addCard(filterPast);
-  } else {
-    addCard(data);
-    sliderTitle.innerText = "Inicio";
-    navbarLinksHome.classList.add("active");
-    navbarLinksUpcomming.classList.remove("active");
-    navbarLinksPast.classList.remove("active");
-  }
+  const checkbox = document.querySelectorAll(".input");
+
+  let checkFiltered = [];
+
+  checkbox.forEach((check) => {
+    const filterCheck = eventsFilter.filter(
+      (event) => event.category === check.id
+    );
+
+    checkFiltered = filterCheck.filter((event) =>
+      event.name.toLowerCase().includes(letter.toLowerCase())
+    );
+
+    if (check.checked === false) {
+      if (sliderTitle.textContent === "Inicio") {
+        if (data.length === 0) {
+          cardsContainer.innerHTML = "";
+          cardsContainer.appendChild(cardsEvents);
+          container_slider.style.display = "none";
+        } else {
+          addCard(data);
+          container_slider.style.display = "block";
+        }
+      } else if (sliderTitle.textContent === "Eventos próximos") {
+        if (filterUppercomming.length === 0) {
+          cardsContainer.innerHTML = "";
+          cardsContainer.appendChild(cardsEvents);
+          container_slider.style.display = "none";
+        } else {
+          addCard(filterUppercomming);
+          container_slider.style.display = "block";
+        }
+      } else if (sliderTitle.textContent === "Eventos pasados") {
+        if (filterPast.length === 0) {
+          cardsContainer.innerHTML = "";
+          cardsContainer.appendChild(cardsEvents);
+          container_slider.style.display = "none";
+        } else {
+          addCard(filterPast);
+          container_slider.style.display = "block";
+        }
+      }
+    } else {
+      if (checkFiltered.length === 0) {
+        cardsContainer.innerHTML = "";
+        cardsContainer.appendChild(cardsEvents);
+        container_slider.style.display = "none";
+      } else {
+        addCard(checkFiltered);
+        container_slider.style.display = "block";
+      }
+      checkedTrue();
+    }
+  });
 }
 
 function addCard(data) {
-  indexArrow = 1;
-
   cards = [];
 
   if (data == undefined) {
@@ -799,6 +723,8 @@ function addCard(data) {
       cardsContainer.style.width = "100%";
     }
   }
+  eventsCategory(data);
+  checkUpdate();
 }
 
 function ShowMore() {
@@ -841,11 +767,6 @@ function showCardMore(e) {
           </div>
         `;
   });
-}
-{
-  /* <p class="cards-estimate-assitance">
-Personas ${dataEvent.estimate || dataEvent.assistance}
-</p> */
 }
 
 cardOverlay.addEventListener("click", (e) => {
@@ -959,6 +880,7 @@ function sendEmail(e) {
 
   btnSubmit.disabled = true;
   btnSubmit.classList.add("btn-disable");
+  btnSubmit.style.pointerEvents = "none";
 
   const spinner = document.querySelector("#spinner");
   spinner.style.display = "flex";
