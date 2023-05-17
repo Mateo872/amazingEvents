@@ -1015,6 +1015,7 @@ function cardsFavourite() {
       }
       productsFavourites(productFavourite);
       addCard(eventsFilter);
+      inputSearch.value = "";
     });
   });
 }
