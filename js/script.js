@@ -1,7 +1,11 @@
-const btnHambur = document.querySelector(".bi-list");
-const menuContainer = document.querySelector(".menu-container");
-const menu = document.querySelector(".menu");
-const body = document.body;
+const btnHambur = document.querySelector(".bi-list"),
+  menuContainer = document.querySelector(".menu-container"),
+  menu = document.querySelector(".menu"),
+  heartHeader = document.querySelector(".bi-heart"),
+  heartDiv = document.querySelector(".heart"),
+  heartFillHeader = document.querySelector(".bi-heart-fill"),
+  heartBadge = document.querySelector(".heart_badge"),
+  body = document.body;
 
 btnHambur.addEventListener("click", () => {
   menuContainer.style.display = "flex";
@@ -700,6 +704,18 @@ function addCard(data) {
   cards.forEach((event) => {
     cardsContainer.innerHTML += `
       <article class="cards">
+      <span class="cards_favourite">
+      <i class="bi bi-heart"></i>
+      <i class="bi bi-heart-fill"></i>
+      </span>
+      <span class="cards_favourite ${
+        productFavourite.filter((name) => name.title === event.name).length > 0
+          ? "card_hide"
+          : ""
+      }">
+      <i class="bi bi-heart"></i>
+      <i class="bi bi-heart-fill"></i>
+      </span>
         <div class="cards-image">
           <img src="./img/${event.image}" alt="Evento cine" />
         </div>
@@ -710,6 +726,8 @@ function addCard(data) {
           <button class="cards-btn-show-more">Ver más</button>
         </div>
         </article>`;
+    cardsFavourite();
+    saveLocal();
   });
 
   ShowMore();
@@ -784,17 +802,21 @@ function windowScroll() {
     const header = document.querySelector("header");
     const navbarLinks = document.querySelectorAll(".navbar-links");
 
-    if (window.innerWidth === 390) {
+    if (window.innerWidth >= 320 && window.innerWidth <= 767) {
       if (window.scrollY >= 70) {
         header.style.borderBottom = "none";
         header.style.backgroundColor = "#fdfdfd";
         header.style.transition = ".5s";
+        heartBadge.style.backgroundColor = "#fdfdfd";
+        heartBadge.style.color = "#1e1e1e";
         btnHambur.style.color = "#1e1e1e";
         menuContainer.style.backgroundColor = "#1e1e1e";
         navbarLinks.forEach((navbar) => (navbar.style.color = "#fdfdfd"));
       } else {
         header.style.borderBottom = "1px solid #fdfdfd";
         header.style.backgroundColor = "transparent";
+        heartBadge.style.backgroundColor = "#1e1e1e";
+        heartBadge.style.color = "#fdfdfd";
         btnHambur.style.color = "#fdfdfd";
         menuContainer.style.backgroundColor = "#fdfdfd";
         navbarLinks.forEach((navbar) => (navbar.style.color = "#1e1e1e"));
@@ -804,11 +826,15 @@ function windowScroll() {
         header.style.borderBottom = "none";
         header.style.backgroundColor = "#fdfdfd";
         header.style.transition = ".5s";
+        heartBadge.style.backgroundColor = "#1e1e1e";
+        heartBadge.style.color = "#fdfdfd";
         menuContainer.style.backgroundColor = "transparent";
         navbarLinks.forEach((navbar) => (navbar.style.color = "#1e1e1e"));
       } else {
         header.style.borderBottom = "1px solid #fdfdfd";
         header.style.backgroundColor = "transparent";
+        heartBadge.style.backgroundColor = "#fdfdfd";
+        heartBadge.style.color = "#1e1e1e";
         menuContainer.style.backgroundColor = "transparent";
         navbarLinks.forEach((navbar) => (navbar.style.color = "#fdfdfd"));
       }
@@ -905,3 +931,187 @@ function sendEmail(e) {
 function resetForm() {
   form.reset();
 }
+
+const containerFavourites = document.querySelector(".container_favourites"),
+  favourites = document.querySelector(".favourites");
+
+heartDiv.addEventListener("click", () => {
+  containerFavourites.style.visibility = "visible";
+  menuContainer.classList.remove("menu-visible");
+  body.classList.remove("background-overlay");
+  cardOverlay.style.display = "none";
+  if (window.innerWidth < 320) {
+  }
+
+  if (window.innerWidth <= 768) {
+    favourites.style.transform = "translateY(0%)";
+  } else {
+    favourites.style.transform = "translateX(0%)";
+  }
+
+  if (heartHeader.style.display !== "none") {
+    heartHeader.style.display = "none";
+    heartFillHeader.style.display = "block";
+  } else {
+    heartHeader.style.display = "block";
+    heartFillHeader.style.display = "none";
+  }
+});
+
+containerFavourites.addEventListener("click", (e) => {
+  if (e.target.className === "container_favourites") {
+    containerFavourites.style.visibility = "hidden";
+    heartHeader.style.display = "block";
+    heartFillHeader.style.display = "none";
+    menuContainer.style.display = "flex";
+    menuContainer.classList.remove("menu-visible");
+    body.classList.remove("background-overlay");
+    cardOverlay.style.display = "none";
+    if (window.innerWidth <= 768) {
+      favourites.style.transform = "translateY(100%)";
+    } else {
+      favourites.style.transform = "translateX(-100%)";
+    }
+  }
+});
+
+let productFavourite = [],
+  cardFavourite = [];
+
+let productLS = localStorage.getItem(productFavourite);
+
+function cardsFavourite() {
+  const cardFavourite = document.querySelectorAll(".cards_favourite");
+
+  cardFavourite.forEach((card) => {
+    card.addEventListener("click", (e) => {
+      const cardElements = e.currentTarget.parentElement,
+        cardImage = cardElements.querySelector(".cards-image"),
+        cardPrice = cardElements.querySelector(".cards-price");
+
+      const card = {
+        image: cardImage.querySelector("img").src,
+        title: cardElements.querySelector("h3").textContent,
+        description: cardElements.querySelector("p").textContent,
+        price: parseFloat(
+          cardPrice.querySelector("span").textContent.replace("$", "")
+        ),
+      };
+
+      if (!e.currentTarget.className.includes("card_hide")) {
+        e.currentTarget.classList.add("card_hide");
+      } else {
+        e.currentTarget.classList.remove("card_hide");
+      }
+
+      if (productFavourite.some((prod) => prod.title === card.title)) {
+        productFavourite = productFavourite.filter(
+          (prod) => prod.title !== card.title
+        );
+        saveLocal();
+      } else {
+        productFavourite.push(card);
+        saveLocal();
+      }
+      productsFavourites(productFavourite);
+      addCard(eventsFilter);
+    });
+  });
+}
+
+const sliderContainer = document.querySelector(".slider_favourites"),
+  inputSearchFavourites = document.querySelector("[data-input-favourites]"),
+  badge = document.querySelector(".badge"),
+  messageEmpty = document.createElement("h2");
+
+messageEmpty.classList.add("message_empty");
+messageEmpty.textContent = "No hay eventos disponibles";
+
+inputSearchFavourites.addEventListener("keyup", (e) => {
+  const value = e.target.value;
+
+  const data = productFavourite.filter((lett) =>
+    lett.title.toLowerCase().includes(value.toLowerCase())
+  );
+
+  if (value === "") {
+    productsFavourites(data);
+    checkEmpty();
+  }
+
+  if (e.key === "Enter") {
+    sliderContainer.innerHTML = "";
+    if (data.length > 0) {
+      productsFavourites(data);
+    } else {
+      sliderContainer.appendChild(messageEmpty);
+    }
+  }
+});
+
+sliderContainer.addEventListener("click", (e) => {
+  const card = e.target.parentElement.querySelector(".favourite_desc"),
+    title = card.querySelector("h4").textContent;
+
+  if (e.target.className.includes("bi-x")) {
+    productFavourite = productFavourite.filter((prod) => prod.title !== title);
+    productsFavourites(productFavourite);
+    saveLocal();
+    addCard(eventsFilter);
+  }
+  checkEmpty();
+});
+
+function productsFavourites(prod) {
+  sliderContainer.innerHTML = "";
+
+  prod.map((product) => {
+    const { image, title, description, price } = product;
+
+    sliderContainer.innerHTML += `
+    <div class="favourite">
+      <div class="favourite_image">
+        <img src="${image}" alt="${title}" />
+      </div>
+      <div class="favourite_desc">
+        <h4>${title}</h4>
+        <div class="favourite_more">
+          <p>${description}</p>
+          <p class="price">$${price}</p>
+        </div>
+      </div>
+      <i class="bi bi-x"></i>
+    </div>
+    `;
+  });
+}
+
+function checkEmpty() {
+  if (productFavourite.length === 0) {
+    sliderContainer.appendChild(messageEmpty);
+  } else if (sliderContainer.contains(messageEmpty)) {
+    sliderContainer.removeChild(messageEmpty);
+  }
+}
+
+restoreLocal();
+checkEmpty();
+
+function restoreLocal() {
+  const storedData = localStorage.getItem("favourites");
+  if (storedData) {
+    productFavourite = JSON.parse(storedData);
+    productsFavourites(productFavourite);
+  }
+}
+
+function saveLocal() {
+  localStorage.setItem("favourites", JSON.stringify(productFavourite));
+  badgeUpdate();
+}
+
+function badgeUpdate() {
+  badge.innerHTML = `${productFavourite.length}`;
+}
+
+badgeUpdate();
